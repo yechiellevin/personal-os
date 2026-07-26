@@ -254,5 +254,23 @@
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-07-26"
+  },
+  {
+    "id": "T0023",
+    "name": "Evaluate driving instruction as a contingency career option",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-26",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0023-1",
+    "name": "Contact the other acquaintance who made the same career change",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-26",
+    "owner": "Yechiel"
   }
 ]

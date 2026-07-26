@@ -272,5 +272,14 @@
     "priority": 2,
     "effective_date": "2026-07-26",
     "owner": "Yechiel"
+  },
+  {
+    "id": "T0024",
+    "name": "Call repairman for electric shutters in living room",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-07-27",
+    "owner": "Yechiel"
   }
 ]

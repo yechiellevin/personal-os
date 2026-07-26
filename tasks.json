@@ -1,0 +1,258 @@
+[
+  {
+    "id": "T0001",
+    "name": "Remove AI evidence from resume and cover letter",
+    "status": "completed",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0002",
+    "name": "Contact 3 people at companies I want to work at",
+    "status": "not_started",
+    "category": "Job search",
+    "priority": 2,
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel",
+    "notes": "To be broken up into subtasks"
+  },
+  {
+    "id": "T0003",
+    "name": "Get on drushim.il and alljobs",
+    "status": "not_started",
+    "category": "Job search",
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0004",
+    "name": "Write a post on LinkedIn",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0005",
+    "name": "Take car for tune-up",
+    "status": "completed",
+    "category": "Errands",
+    "priority": 2,
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel",
+    "notes": "Arranged with Auto King to pick up car for tune-up on Sunday July 19.",
+    "history": [
+      {
+        "note": "Arranged with Auto King to pick up car for tune-up on Sunday July 19.",
+        "date": "2026-07-14"
+      }
+    ]
+  },
+  {
+    "id": "T0006",
+    "name": "Call installer for ceiling fan light",
+    "status": "completed",
+    "category": "Errands",
+    "priority": 2,
+    "effective_date": "2026-07-13",
+    "due_date": "2026-07-13",
+    "owner": "Yechiel",
+    "notes": "Technician came and installed the light.",
+    "history": [
+      {
+        "note": "Technician came and installed the light.",
+        "date": "2026-07-21"
+      }
+    ]
+  },
+  {
+    "id": "T0007",
+    "name": "Video floor-cleaner robot and send to company",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 3,
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0008",
+    "name": "Reach out to Phil Americus, send CV",
+    "status": "completed",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-07-13",
+    "due_date": "2026-07-13",
+    "owner": "Yechiel",
+    "notes": "Reached out, sent CV",
+    "history": [
+      {
+        "note": "Reached out, sent CV",
+        "date": "2026-07-13"
+      }
+    ]
+  },
+  {
+    "id": "T0009",
+    "name": "Reach out to HR person at Cyera",
+    "status": "completed",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-07-13",
+    "due_date": "2026-07-13",
+    "owner": "Yechiel",
+    "notes": "Reached out",
+    "history": [
+      {
+        "note": "Reached out",
+        "date": "2026-07-13"
+      }
+    ]
+  },
+  {
+    "id": "T0010",
+    "name": "Open new unemployment claim at Bituah Leumi",
+    "status": "not_started",
+    "category": "Unemployment",
+    "effective_date": "2026-08-02",
+    "due_date": "2026-08-02",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0011",
+    "name": "Talk to Ran Brody about risk zmani policy",
+    "status": "completed",
+    "category": "Unemployment",
+    "priority": 1,
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel",
+    "notes": "Created new task (T0015) to continue, marking this complete.",
+    "history": [
+      {
+        "note": "Created new task (T0015) to continue, marking this complete.",
+        "date": "2026-07-14"
+      }
+    ]
+  },
+  {
+    "id": "T0012",
+    "name": "Get in touch with Benny the freelance guy",
+    "status": "not_started",
+    "category": "Job search",
+    "priority": 2,
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0013",
+    "name": "Read stuff that Ben Goldfarb sent, touch base",
+    "status": "not_started",
+    "category": "Job search",
+    "priority": 2,
+    "effective_date": "2026-07-13",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0014",
+    "name": "Discuss regular donations to Ezrat Achim with Toba",
+    "status": "not_started",
+    "category": "Finances",
+    "priority": 1,
+    "effective_date": "2026-07-14",
+    "due_date": "2026-07-15",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0015",
+    "name": "Call Shiran at Brody Lieberman at 03-5414870 to make an appointment for Ran Brody",
+    "status": "completed",
+    "category": "Unemployment",
+    "priority": 1,
+    "effective_date": "2026-07-14",
+    "due_date": "2026-07-15",
+    "owner": "Yechiel",
+    "notes": "Left a message with Shiran's colleague. Shiran will return my call and make the appointment sometime today.",
+    "history": [
+      {
+        "note": "Left a message with Shiran's colleague. Shiran will return my call and make the appointment sometime today.",
+        "date": "2026-07-20"
+      }
+    ]
+  },
+  {
+    "id": "T0016",
+    "name": "Attend the tekom Technical Writing networking event in Tel Aviv",
+    "status": "completed",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-07-13",
+    "due_date": "2026-07-15",
+    "owner": "Yechiel",
+    "notes": "Attended event. See ideas.md and new tasks generated.",
+    "history": [
+      {
+        "note": "Attended event. See ideas.md and new tasks generated.",
+        "date": "2026-07-16"
+      }
+    ]
+  },
+  {
+    "id": "T0017",
+    "name": "Check for recording of the AI webinar",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-15",
+    "due_date": "2026-07-20",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0018",
+    "name": "Call Swing Fans customer service to complain about technician availability; ask for alternative.",
+    "status": "completed",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-07-20",
+    "due_date": "2026-07-21",
+    "owner": "Yechiel",
+    "notes": "Closed as unnecessary. Source task completed."
+  },
+  {
+    "id": "T0019",
+    "name": "Complete a unit in Coursiv AI course",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-07-20",
+    "due_date": "2026-07-20",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0020",
+    "name": "Brainstorm on POS/COS app development",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-20",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0021",
+    "name": "Sign forms from Ran Brody and return",
+    "status": "not_started",
+    "category": "Unemployment",
+    "priority": 1,
+    "effective_date": "2026-07-26",
+    "due_date": "2026-07-26",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0022",
+    "name": "Debrief and capture insights from the tekom networking event",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-26"
+  }
+]

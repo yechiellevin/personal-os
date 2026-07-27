@@ -240,12 +240,19 @@
   {
     "id": "T0021",
     "name": "Sign forms from Ran Brody and return",
-    "status": "not_started",
+    "status": "completed",
     "category": "Unemployment",
     "priority": 1,
     "effective_date": "2026-07-26",
     "due_date": "2026-07-26",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Signed and returned the forms.",
+    "history": [
+      {
+        "date": "2026-07-27",
+        "note": "Signed and returned the forms."
+      }
+    ]
   },
   {
     "id": "T0022",

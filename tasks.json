@@ -288,5 +288,21 @@
     "priority": 1,
     "effective_date": "2026-07-27",
     "owner": "Yechiel"
+  },
+  {
+    "id": "T0025",
+    "name": "Explore pivot to technical training as a career option",
+    "status": "in_progress",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-07-27",
+    "owner": "Yechiel",
+    "notes": "Performed cursory analysis of gaps to address for technical training job eligibility.",
+    "history": [
+      {
+        "date": "2026-07-27",
+        "note": "Performed cursory analysis of gaps to address for technical training job eligibility."
+      }
+    ]
   }
 ]

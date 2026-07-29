@@ -228,12 +228,19 @@
   {
     "id": "T0019",
     "name": "Complete a unit in Coursiv AI course",
-    "status": "not_started",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 1,
     "effective_date": "2026-07-20",
     "due_date": "2026-07-20",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Completed several course units between July 27 and July 29.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Completed several course units between July 27 and July 29."
+      }
+    ]
   },
   {
     "id": "T0020",
@@ -281,11 +288,18 @@
   {
     "id": "T0023-1",
     "name": "Contact the other acquaintance who made the same career change",
-    "status": "not_started",
+    "status": "in_progress",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-07-26",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Daphna replied, and we arranged to speak this afternoon.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Daphna replied, and we arranged to speak this afternoon."
+      }
+    ]
   },
   {
     "id": "T0024",
@@ -316,6 +330,33 @@
       {
         "date": "2026-07-27",
         "note": "Performed cursory analysis of gaps to address for technical training job eligibility."
+      }
+    ]
+  },
+  {
+    "id": "T0026",
+    "name": "Complete the Coursiv AI course",
+    "status": "in_progress",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-29",
+    "owner": "Yechiel",
+    "notes": "Ongoing course-level task. Progress will be tracked through periodic execution tasks."
+  },
+  {
+    "id": "T0026-1",
+    "name": "Complete two Coursiv units during the week ending August 2",
+    "status": "completed",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-27",
+    "due_date": "2026-08-02",
+    "owner": "Yechiel",
+    "notes": "Completed at least two Coursiv units during the week ending August 2.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Completed at least two Coursiv units during the week ending August 2."
       }
     ]
   }

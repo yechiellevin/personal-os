@@ -156,12 +156,19 @@
   {
     "id": "T0014",
     "name": "Discuss regular donations to Ezrat Achim with Toba",
-    "status": "not_started",
+    "status": "completed",
     "category": "Finances",
     "priority": 1,
     "effective_date": "2026-07-14",
     "due_date": "2026-07-15",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Decision made on regular donations to Ezrat Achim.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Decision made on regular donations to Ezrat Achim."
+      }
+    ]
   },
   {
     "id": "T0015",
@@ -283,11 +290,18 @@
   {
     "id": "T0024",
     "name": "Call repairman for electric shutters in living room",
-    "status": "not_started",
+    "status": "waiting",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-07-27",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Called the repairman. He said he would come sometime today but did not specify a time; awaiting his arrival or response after follow-up.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Called the repairman. He said he would come sometime today but did not specify a time; awaiting his arrival or response after follow-up."
+      }
+    ]
   },
   {
     "id": "T0025",

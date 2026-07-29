@@ -342,5 +342,22 @@
     "effective_date": "2026-07-29",
     "owner": "Yechiel",
     "notes": "Ongoing course-level task. Progress will be tracked through periodic execution tasks."
+  },
+  {
+    "id": "T0026-1",
+    "name": "Complete two Coursiv units during the week ending August 2",
+    "status": "completed",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-27",
+    "due_date": "2026-08-02",
+    "owner": "Yechiel",
+    "notes": "Completed at least two Coursiv units during the week ending August 2.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Completed at least two Coursiv units during the week ending August 2."
+      }
+    ]
   }
 ]

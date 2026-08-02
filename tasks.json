@@ -113,11 +113,18 @@
   {
     "id": "T0010",
     "name": "Open new unemployment claim at Bituah Leumi",
-    "status": "not_started",
+    "status": "completed",
     "category": "Unemployment",
     "effective_date": "2026-08-02",
     "due_date": "2026-08-02",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Opened the new unemployment claim at Bituah Leumi.",
+    "history": [
+      {
+        "date": "2026-08-02",
+        "note": "Opened the new unemployment claim at Bituah Leumi."
+      }
+    ]
   },
   {
     "id": "T0011",
@@ -279,41 +286,76 @@
   {
     "id": "T0023",
     "name": "Evaluate driving instruction as a contingency career option",
-    "status": "not_started",
-    "category": "Professional advancement",
-    "priority": 2,
-    "effective_date": "2026-07-26",
-    "owner": "Yechiel"
-  },
-  {
-    "id": "T0023-1",
-    "name": "Contact the other acquaintance who made the same career change",
     "status": "in_progress",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-07-26",
     "owner": "Yechiel",
-    "notes": "Daphna replied, and we arranged to speak this afternoon.",
+    "notes": "Initial discussion was encouraging. The path requires an estimated three-to-five-year training and licensing ramp-up, but may offer strong income and independence; worth pursuing further.",
     "history": [
       {
-        "date": "2026-07-29",
-        "note": "Daphna replied, and we arranged to speak this afternoon."
+        "date": "2026-08-02",
+        "note": "Concluded after speaking with Daphna that driving instruction is worth pursuing further despite an estimated three-to-five-year training and licensing ramp-up."
       }
     ]
   },
   {
+    "id": "T0023-1",
+    "name": "Contact the other acquaintance who made the same career change",
+    "status": "completed",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-07-26",
+    "owner": "Yechiel",
+    "notes": "Spoke with Daphna. The career path likely requires at least three and possibly five years of training and licensing, but can be financially rewarding and allow substantial independence. Conclusion: worth pursuing further.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Daphna replied, and we arranged to speak this afternoon."
+      },
+      {
+        "date": "2026-08-02",
+        "note": "Completed an informative call with Daphna and concluded that the career path is worth pursuing further."
+      }
+    ]
+  },
+  {
+    "id": "T0023-2",
+    "name": "Contact HaMichlalah HaNihulit for driving-instructor course information",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-02",
+    "owner": "Yechiel",
+    "notes": "Preferably complete before the Employment Office check-in covered by T0023-3."
+  },
+  {
+    "id": "T0023-3",
+    "name": "At the next Employment Office check-in, discuss driving-instructor career-change options and available stipends or scholarships",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-08",
+    "due_date": "2026-08-14",
+    "owner": "Yechiel"
+  },
+  {
     "id": "T0024",
     "name": "Call repairman for electric shutters in living room",
-    "status": "waiting",
+    "status": "completed",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-07-27",
     "owner": "Yechiel",
-    "notes": "Called the repairman. He said he would come sometime today but did not specify a time; awaiting his arrival or response after follow-up.",
+    "notes": "Repairman inspected the shutter and diagnosed a likely faulty motor. He provided a quote for replacing the motor; if that does not solve the problem, the entire shutter may need replacement. The quote was higher than expected, so no work was authorized pending a decision.",
     "history": [
       {
         "date": "2026-07-29",
         "note": "Called the repairman. He said he would come sometime today but did not specify a time; awaiting his arrival or response after follow-up."
+      },
+      {
+        "date": "2026-08-02",
+        "note": "Repairman inspected the shutter, diagnosed a likely faulty motor, and provided a quote. No work was authorized pending a decision."
       }
     ]
   },
@@ -332,6 +374,16 @@
         "note": "Performed cursory analysis of gaps to address for technical training job eligibility."
       }
     ]
+  },
+  {
+    "id": "T0025-1",
+    "name": "At the next Employment Office check-in, ask about technical-training courses and sponsorship",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-08-08",
+    "due_date": "2026-08-14",
+    "owner": "Yechiel"
   },
   {
     "id": "T0026",
@@ -359,5 +411,25 @@
         "note": "Completed at least two Coursiv units during the week ending August 2."
       }
     ]
+  },
+  {
+    "id": "T0026-2",
+    "name": "Complete two Coursiv units during the week ending August 9",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-03",
+    "due_date": "2026-08-09",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0027",
+    "name": "Decide whether to proceed with the electric-shutter repair",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 2,
+    "effective_date": "2026-08-02",
+    "owner": "Yechiel",
+    "notes": "Review the repairman's quote and decide whether to authorize motor replacement, understanding that failure of the motor replacement may require replacing the entire shutter."
   }
 ]

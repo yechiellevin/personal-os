@@ -431,5 +431,31 @@
     "effective_date": "2026-08-02",
     "owner": "Yechiel",
     "notes": "Review the repairman's quote and decide whether to authorize motor replacement, understanding that failure of the motor replacement may require replacing the entire shutter."
+  },
+  {
+    "id": "T0028",
+    "name": "Follow up on Wiz job application",
+    "status": "not_started",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-08-02",
+    "owner": "Yechiel",
+    "notes": "TBD: determine what the follow-up should entail."
+  },
+  {
+    "id": "T0029",
+    "name": "Apply for the Wiz Technical Writer position",
+    "status": "completed",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-08-02",
+    "owner": "Yechiel",
+    "notes": "Completed and submitted the Wiz job application.",
+    "history": [
+      {
+        "date": "2026-08-02",
+        "note": "Completed and submitted the Wiz job application."
+      }
+    ]
   }
 ]

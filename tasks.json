@@ -286,16 +286,20 @@
   {
     "id": "T0023",
     "name": "Evaluate driving instruction as a contingency career option",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-07-26",
     "owner": "Yechiel",
-    "notes": "Initial discussion was encouraging. The path requires an estimated three-to-five-year training and licensing ramp-up, but may offer strong income and independence; worth pursuing further.",
+    "notes": "Evaluation concluded positively. Driving instruction is worth pursuing as a contingency career option; execution continues under T0030.",
     "history": [
       {
         "date": "2026-08-02",
         "note": "Concluded after speaking with Daphna that driving instruction is worth pursuing further despite an estimated three-to-five-year training and licensing ramp-up."
+      },
+      {
+        "date": "2026-08-06",
+        "note": "Completed the evaluation phase with a positive decision to pursue the driving-instructor path."
       }
     ]
   },
@@ -321,13 +325,19 @@
   },
   {
     "id": "T0023-2",
-    "name": "Contact HaMichlalah HaNihulit for driving-instructor course information",
-    "status": "not_started",
+    "name": "Contact Michlelet Nihulit for driving-instructor course information",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-02",
     "owner": "Yechiel",
-    "notes": "Preferably complete before the Employment Office check-in covered by T0023-3."
+    "notes": "Spoke with a representative and obtained the prerequisite sequence for admission to the driving-instructor course. Execution is tracked under T0030 and its subtasks.",
+    "history": [
+      {
+        "date": "2026-08-06",
+        "note": "Spoke with Michlelet Nihulit and obtained the prerequisite sequence for course admission."
+      }
+    ]
   },
   {
     "id": "T0023-3",
@@ -457,5 +467,105 @@
         "note": "Completed and submitted the Wiz job application."
       }
     ]
+  },
+  {
+    "id": "T0030",
+    "name": "Fulfill prerequisites for the Michlelet Nihulit driving-instructor course",
+    "status": "in_progress",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Execution task created after the positive completion of T0023. Items T0030-1 through T0030-3 can proceed in parallel; subsequent steps depend on Ministry of Transport and Machon Pilat processes."
+  },
+  {
+    "id": "T0030-1",
+    "name": "Obtain a manual-transmission driving license",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Arrange enough practice sessions to regain comfort driving a manual-transmission car, then take the licensing test. Prior experience driving stick was many years ago in the United States."
+  },
+  {
+    "id": "T0030-2",
+    "name": "Complete the Ministry of Transport Green Form for license type C1",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Required for the driving-instructor course process regardless of the vehicle class ultimately intended for instruction."
+  },
+  {
+    "id": "T0030-3",
+    "name": "Complete an eye test",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Required for the course prerequisite process and independently overdue."
+  },
+  {
+    "id": "T0030-4",
+    "name": "Contact Moti Elimelech about serving as an inside contact for the driving-instructor path",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Moti Elimelech is the former colleague who first suggested the driving-instructor career option. Ask whether he can provide guidance or introductions within the profession."
+  },
+  {
+    "id": "T0030-5",
+    "name": "Make an appointment at the Ministry of Transport Talpiot headquarters in Jerusalem",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Request a referral for Machon Pilat's examination of suitability to teach driving."
+  },
+  {
+    "id": "T0030-6",
+    "name": "Investigate Machon Noam preparation options for the Machon Pilat examinations",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Optional. Contact Machon Noam in Jerusalem to clarify whether it offers preparatory materials, a course, or both for the Machon Pilat examinations."
+  },
+  {
+    "id": "T0030-7",
+    "name": "Complete the Machon Pilat suitability examinations",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Contact Machon Pilat and take the required suitability examinations. Current understanding is that these include psychometric, personality, and related assessments. If unsuccessful, reapplication is possible after one year."
+  },
+  {
+    "id": "T0030-8",
+    "name": "Obtain referral to Michlelet Nihulit and enroll in the driving-instructor course",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "Conditional on passing the Machon Pilat examinations. After referral and enrollment, a driving test is also required for course admission."
+  },
+  {
+    "id": "T0030-9",
+    "name": "Pass the driving test required for admission to the driving-instructor course",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-06",
+    "owner": "Yechiel",
+    "notes": "This appears to be a separate admission requirement from obtaining the manual-transmission license under T0030-1."
   }
 ]

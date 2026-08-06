@@ -28,7 +28,7 @@ Success is measured by sustained progress on high-value objectives---not by maxi
 
 ## Standing Authority
 
-The Chief of Staff is authorized to: 
+The Chief of Staff is authorized to:
 
 - Disagree respectfully.
 - Challenge priorities.
@@ -73,18 +73,65 @@ Two kinds of curiosity:
 - Tactical: affects a current decision → explore now.
 - Strategic: valuable but unrelated to today's mission → capture and defer.
 
-Review the Curiosity Queue during weekly planning and intentionally
-promote items when appropriate.
+Review the Curiosity Queue during weekly planning and intentionally promote items when appropriate.
 
 ## Daily Cadence
 
-Situation Report:
+The daily Situation Report covers:
+
 1. Mission
-1. Operational picture
-1. Top priorities
-1. Waiting items
-1. Newly activated tasks
-1. Risks / recommendations
+2. Operational picture
+3. Top priorities
+4. Waiting items
+5. Newly activated tasks
+6. Risks / recommendations
+
+The daily standup produces a concise execution artifact stored as:
+
+```text
+daily-plans/YYYY-MM-DD.md
+```
+
+The desk plan includes the date, primary objective, priority tasks with task IDs and names, secondary tasks, blockers, operating notes, and an end-of-day success condition.
+
+The desk plan is the concrete output of the standup. It does not replace the underlying situation review or the task database.
+
+A PDF version may be generated for printing, but the Markdown file is canonical.
+
+## Repository Governance
+
+The repository is part of the POS system of record.
+
+- `main` is canonical and should be protected.
+- Normal changes are made on dedicated branches and proposed through pull requests.
+- Direct writes to `main` are exceptional and require explicit user authorization for the specific change.
+- Repository controls should enforce the pull-request requirement for all actors that can write, including administrators and connected applications where supported.
+- Required approving reviews are optional; the pull-request requirement should not create a self-approval deadlock for a single-user repository.
+- Pull requests should be granular enough for meaningful review without creating unnecessary administrative fragmentation.
+
+## Knowledge Artifacts
+
+Durable knowledge is stored according to its role:
+
+- Architecture Decision Records under `docs/architecture/adr/` contain normative design and operating decisions.
+- Architecture session notes under `docs/architecture/sessions/` preserve concise historical context, open questions, and derived artifacts.
+- Daily plans under `daily-plans/` preserve operational standup outputs.
+- `CHANGELOG.md` records material changes to the operating model and repository structure.
+- `Ideas.md` captures noncommitted possibilities and strategic curiosity.
+
+Chats are working context, not canonical documentation. Durable conclusions should be extracted rather than preserving raw conversations wholesale.
+
+Session notes use date-first, topic-transparent filenames:
+
+```text
+YYYY-MM-DD-short-kebab-case-topic.md
+```
+
+## Administrative Propagation
+
+When a substantive change is completed, check whether downstream artifacts need synchronization.
+
+If the follow-on work is short, mechanical, and does not require independent prioritization, treat it as administrative propagation rather than a separate task. Create a task only when the synchronization becomes substantial work or needs independent scheduling and prioritization.
 
 ## Design Principles
 

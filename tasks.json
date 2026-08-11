@@ -615,5 +615,16 @@
     "effective_date": "2026-08-11",
     "owner": "Yechiel",
     "notes": "Confirm Ministry of Labor oversight for candidate course providers, including Michlelet Nihulit if applicable, and determine the available Employment Office subsidy for the specific course/provider."
+  },
+  {
+    "id": "T0031",
+    "name": "Attend Employment Office career-counselor appointment about retraining subsidies",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-09-09",
+    "due_date": "2026-09-09",
+    "owner": "Yechiel",
+    "notes": "Appointment at 11:50 AM with an Employment Office career counselor. Get detailed guidance on subsidy eligibility and procedures for Ministry of Labor-supervised retraining/upskilling courses, specifically covering driving instruction and technical/software training. A matching Google Calendar event has been created."
   }
 ]

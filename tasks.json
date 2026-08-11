@@ -350,12 +350,19 @@
   {
     "id": "T0023-3",
     "name": "At the next Employment Office check-in, discuss driving-instructor career-change options and available stipends or scholarships",
-    "status": "not_started",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-08",
     "due_date": "2026-08-14",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Asked at the Employment Office. Subsidy may be available for eligible training when the course provider is under Ministry of Labor oversight; the exact subsidy depends on the specific course/provider.",
+    "history": [
+      {
+        "date": "2026-08-11",
+        "note": "Asked about support for driving-instructor training. Employment Office support requires a provider under Ministry of Labor oversight; subsidy level depends on the specific course/provider."
+      }
+    ]
   },
   {
     "id": "T0024",
@@ -396,12 +403,29 @@
   {
     "id": "T0025-1",
     "name": "At the next Employment Office check-in, ask about technical-training courses and sponsorship",
-    "status": "not_started",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 1,
     "effective_date": "2026-08-08",
     "due_date": "2026-08-14",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Asked at the Employment Office. Subsidy may be available for eligible software/technical-training courses when the provider is under Ministry of Labor oversight; the exact subsidy depends on the specific course/provider.",
+    "history": [
+      {
+        "date": "2026-08-11",
+        "note": "Asked about support for software/technical-training courses. Employment Office support requires a provider under Ministry of Labor oversight; subsidy level depends on the specific course/provider."
+      }
+    ]
+  },
+  {
+    "id": "T0025-2",
+    "name": "Identify Ministry of Labor-supervised technical-training courses eligible for Employment Office subsidy",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-08-11",
+    "owner": "Yechiel",
+    "notes": "Focus on courses that address gaps relevant to technical training and product enablement. Confirm Ministry of Labor oversight and determine the available Employment Office subsidy for specific candidates."
   },
   {
     "id": "T0026",
@@ -489,12 +513,18 @@
   {
     "id": "T0030-1",
     "name": "Obtain a manual-transmission driving license",
-    "status": "not_started",
+    "status": "in_progress",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Arrange enough practice sessions to regain comfort driving a manual-transmission car, then take the licensing test. Prior experience driving stick was many years ago in the United States."
+    "notes": "Arrange enough practice sessions to regain comfort driving a manual-transmission car, then take the licensing test. Prior experience driving stick was many years ago in the United States. Inquiries have been made to locate a driving instructor who can provide the necessary practice and licensing preparation.",
+    "history": [
+      {
+        "date": "2026-08-11",
+        "note": "Made inquiries to find a driving instructor who can help with practice and licensing on a manual-transmission car."
+      }
+    ]
   },
   {
     "id": "T0030-2",
@@ -575,5 +605,26 @@
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
     "notes": "This appears to be a separate admission requirement from obtaining the manual-transmission license under T0030-1."
+  },
+  {
+    "id": "T0030-10",
+    "name": "Identify a Ministry of Labor-supervised driving-instructor course provider eligible for Employment Office subsidy",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-11",
+    "owner": "Yechiel",
+    "notes": "Confirm Ministry of Labor oversight for candidate course providers, including Michlelet Nihulit if applicable, and determine the available Employment Office subsidy for the specific course/provider."
+  },
+  {
+    "id": "T0031",
+    "name": "Attend Employment Office career-counselor appointment about retraining subsidies",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-09-09",
+    "due_date": "2026-09-09",
+    "owner": "Yechiel",
+    "notes": "Appointment at 11:50 AM with an Employment Office career counselor. Get detailed guidance on subsidy eligibility and procedures for Ministry of Labor-supervised retraining/upskilling courses, specifically covering driving instruction and technical/software training. A matching Google Calendar event has been created."
   }
 ]

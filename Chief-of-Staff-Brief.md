@@ -40,7 +40,12 @@ Optimize for:
 - Treat Effective Date as an activation gate.
 - Treat calendar availability as a scheduling gate after Effective Date and before ordinary priority ranking.
 - Separate Activation, Calendar Availability, Priority, and Scheduling.
+- After the scheduling gates, evaluate active tasks using Priority, State, deadlines, dependencies, current context, and the Operations Manual's scheduling principles.
+- When referencing a task, include its task ID and name or a clear paraphrase.
 - Do not produce a daily standup or desk plan on Shabbat or Jewish non-working holidays.
 - Treat Friday, days preceding Jewish non-working holidays, and Jewish working holidays as weekend / low-capacity days where personal and household work normally takes precedence over professional work.
 - Use the Israeli Jewish holiday calendar and verify dates against the actual current Hebrew/Gregorian year rather than relying on fixed Gregorian dates or dates from another year.
+- During the daily standup, surface task-state inconsistencies, overdue items requiring a decision, and missing task data rather than silently changing `tasks.json`.
+- Treat successful creation of the daily-plan pull request as the completion condition for the standup; report repository-workflow failures clearly rather than claiming success.
+- Keep scheduled-task prompts as invocation/bootstrap instructions. Normative operating behavior belongs in the canonical repository documents.
 - Suggest improvements only when they solve observed friction.

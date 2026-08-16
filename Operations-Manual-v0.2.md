@@ -86,14 +86,21 @@ Review the Curiosity Queue during weekly planning and intentionally promote item
 
 ## Daily Cadence
 
-On schedulable days, the daily Situation Report covers:
+On schedulable days, the daily standup begins with an underlying situation review of the current task database. Apply Effective Date first, then Calendar Availability, then evaluate active tasks using Priority, State, deadlines, dependencies, current context, and the scheduling principles in this manual.
 
-1. Mission
+When referencing a task in the situation review, chat summary, or desk plan, always include its task ID and name or a clear paraphrase of the name.
+
+The daily Situation Report covers:
+
+1. Mission / primary objective
 2. Operational picture
 3. Top priorities
-4. Waiting items
+4. Waiting items, blockers, and constraints
 5. Newly activated tasks
 6. Risks / recommendations
+7. End-of-day success condition
+
+The chat summary should be concise and identify the day's primary objective, most important tasks, relevant blockers or constraints, and what constitutes a successful day.
 
 The daily standup produces a concise execution artifact stored as:
 
@@ -101,13 +108,25 @@ The daily standup produces a concise execution artifact stored as:
 daily-plans/YYYY-MM-DD.md
 ```
 
-The desk plan includes the date, primary objective, priority tasks with task IDs and names, secondary tasks, blockers, operating notes, and an end-of-day success condition.
+The desk plan should be concise enough to function as a one-page working document and includes the date, primary objective, priority tasks with task IDs and names, secondary tasks, blockers, operating notes, and an end-of-day success condition.
 
-The desk plan is the concrete output of the standup. It does not replace the underlying situation review or the task database.
+The desk plan is the concrete, canonical output of the standup. It does not replace the underlying situation review or the task database.
 
 No daily standup or desk plan is produced on Shabbat or Jewish non-working holidays.
 
-A PDF version may be generated for printing, but the Markdown file is canonical.
+A PDF version is generated only when explicitly requested. The Markdown file is canonical.
+
+### Daily Standup Repository Workflow
+
+The canonical desk plan is created through the normal repository-governance workflow:
+
+- Create the daily plan on a non-default working branch; do not write it directly to `main`.
+- Open a pull request targeting `main` that contains the daily desk plan. Use a clear branch name and pull-request title that identify the date.
+- Include a direct link to the pull request prominently in the chat summary.
+- Successful creation of the pull request is the completion condition for the daily standup. Do not report the desk plan as ready unless the pull request has actually been created successfully.
+- If creation of the Markdown file, working branch, or pull request fails, report the failure clearly instead of claiming success.
+
+Generating the daily standup does not itself authorize changes to `tasks.json`. If the review reveals task-state inconsistencies, overdue items requiring a decision, missing information, or other task-database issues, surface them in the situation review rather than silently changing the task list. Task-database changes follow their own normal operating and repository-governance process.
 
 ## Repository Governance
 
@@ -119,6 +138,16 @@ The repository is part of the POS system of record.
 - Repository controls should enforce the pull-request requirement for all actors that can write, including administrators and connected applications where supported.
 - Required approving reviews are optional; the pull-request requirement should not create a self-approval deadlock for a single-user repository.
 - Pull requests should be granular enough for meaningful review without creating unnecessary administrative fragmentation.
+
+## Automation Governance
+
+Automations invoke operating procedures; they do not define them.
+
+Normative POS behavior belongs in the canonical repository documents, not in scheduled-task prompts. Automation prompts should contain only the bootstrap context necessary to locate the authoritative repository and operating model, identify the procedure to invoke, and deliver its result to the intended destination.
+
+Before executing a POS procedure, an automation should read the current canonical operating documents and operational data from the repository and follow them as written. If the operating model says that the procedure should not run on the current day, the automation should terminate without producing the suppressed output.
+
+Do not duplicate business rules in automation prompts merely for convenience. When an observed requirement is important enough to govern execution, add it to the canonical operating model instead.
 
 ## Knowledge Artifacts
 

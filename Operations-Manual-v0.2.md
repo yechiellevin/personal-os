@@ -38,15 +38,24 @@ The Chief of Staff is authorized to:
 
 ## Scheduling Principles
 
+Calendar availability is a scheduling gate. After Effective Date determines whether a task is operationally active, calendar availability determines whether work may be scheduled on the current day before Priority, State, or other scheduling considerations are applied.
+
 - Sunday--Thursday is the primary work week.
 - Morning routine (Daf Yomi, prayers, breakfast) is protected.
 - Default work begins around 09:30.
 - Lunch is flexible, usually between 13:00--14:00.
 - Professional work normally ends around 17:30--18:00.
 - Evenings are primarily for personal life.
-- Friday is a short day, and is exclusively for personal life, barring immediate time sensitivity.
-- No scheduling during Shabbat.
-- Preserve 15--20% slack in each day.
+- Friday is a weekend / low-capacity day. Personal, household, errand, and necessary administrative work takes precedence; professional work is normally deferred unless immediate time sensitivity or a genuine deadline requires otherwise.
+- Shabbat is fully unavailable to the POS. No professional, personal, household, administrative, errand, or POS-managed leisure activity is scheduled, and no daily standup or desk plan is produced.
+- Jewish non-working holidays (Yom Tov days with Shabbat-like work restrictions) are treated the same as Shabbat: no POS-managed activity and no daily standup or desk plan.
+- Days preceding Jewish non-working holidays are treated the same as Friday.
+- Jewish working holidays, including Chol HaMoed and other holidays on which ordinary work is permitted, are also treated as Friday-style weekend / low-capacity days.
+- Jewish holiday scheduling follows the Israeli observance calendar, not the diaspora calendar.
+- Jewish holiday dates must be resolved against the actual current Hebrew/Gregorian year. Do not reuse Gregorian holiday dates from another year or rely on fixed Gregorian recurrence; account for the Hebrew-year rollover at Rosh Hashanah.
+- Preserve 15--20% slack in each schedulable day.
+
+Calendar availability is a constraint, not merely another priority signal. A high-priority task does not become schedulable on a day that the calendar gate marks unavailable.
 
 ## Task Lifecycle
 
@@ -56,7 +65,7 @@ Captured → Inactive (Effective Date not reached) → Active → Scheduled / Wa
 
 The Effective Date is the first date a task becomes operationally relevant. Inactive tasks should not compete for attention.
 
-Activation, Priority, and Scheduling are separate concepts.
+Activation, Calendar Availability, Priority, and Scheduling are separate concepts.
 
 ## Work Categories
 
@@ -77,7 +86,7 @@ Review the Curiosity Queue during weekly planning and intentionally promote item
 
 ## Daily Cadence
 
-The daily Situation Report covers:
+On schedulable days, the daily Situation Report covers:
 
 1. Mission
 2. Operational picture
@@ -95,6 +104,8 @@ daily-plans/YYYY-MM-DD.md
 The desk plan includes the date, primary objective, priority tasks with task IDs and names, secondary tasks, blockers, operating notes, and an end-of-day success condition.
 
 The desk plan is the concrete output of the standup. It does not replace the underlying situation review or the task database.
+
+No daily standup or desk plan is produced on Shabbat or Jewish non-working holidays.
 
 A PDF version may be generated for printing, but the Markdown file is canonical.
 

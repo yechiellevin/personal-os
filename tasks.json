@@ -626,5 +626,35 @@
     "due_date": "2026-09-09",
     "owner": "Yechiel",
     "notes": "Appointment at 11:50 AM with an Employment Office career counselor. Get detailed guidance on subsidy eligibility and procedures for Ministry of Labor-supervised retraining/upskilling courses, specifically covering driving instruction and technical/software training. A matching Google Calendar event has been created."
+  },
+  {
+    "id": "T0032",
+    "name": "Spend a block of time every workday following at least one job lead",
+    "status": "in_progress",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "'Following' means taking at least one job lead from compatibility analysis through a submitted application. Protect a dedicated work block for this every workday."
+  },
+  {
+    "id": "T0032-1",
+    "name": "Tipuli Tech — Customer Enablement Specialist",
+    "status": "completed",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "Compatibility analysis and application submission are complete."
+  },
+  {
+    "id": "T0032-2",
+    "name": "Guidde — Customer Enablement Manager",
+    "status": "in_progress",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "Compatibility analysis is underway; the application has not yet been submitted."
   }
 ]

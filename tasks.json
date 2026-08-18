@@ -669,12 +669,18 @@
   {
     "id": "T0035",
     "name": "Contact Bituah Leumi to determine status of new unemployment claim",
-    "status": "not_started",
+    "status": "completed",
     "category": "Unemployment",
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Contact Bituah Leumi by phone or online and determine the current status of the new unemployment claim."
+    "notes": "The new unemployment claim had been rejected silently because of an incorrect date. The date was corrected and the claim was resubmitted properly.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Checked the claim status, discovered a silent rejection caused by an incorrect date, corrected the date, and resubmitted the claim properly."
+      }
+    ]
   },
   {
     "id": "T0036",

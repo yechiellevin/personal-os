@@ -672,5 +672,68 @@
         "note": "Added the task retroactively to capture work already underway. Lessons 1 and 2 are complete, and Lesson 3 is in progress."
       }
     ]
+  },
+  {
+    "id": "T0034",
+    "name": "Return Power of Attorney form to Hevrat Hashmal and make appointment for inspection",
+    "status": "in_progress",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0035",
+    "name": "Contact Bituah Leumi to determine status of new unemployment claim",
+    "status": "completed",
+    "category": "Unemployment",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "The new unemployment claim had been rejected silently because of an incorrect date. The date was corrected and the claim was resubmitted properly.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Checked the claim status, discovered a silent rejection caused by an incorrect date, corrected the date, and resubmitted the claim properly."
+      }
+    ]
+  },
+  {
+    "id": "T0036",
+    "name": "Make doctor's appointments",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0036-1",
+    "name": "Make appointment with Dr. Roness (GP)",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "Discuss possible kidney issue and obtain a referral to a urologist if appropriate."
+  },
+  {
+    "id": "T0036-2",
+    "name": "Make appointment with a urologist",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel"
+  },
+  {
+    "id": "T0036-3",
+    "name": "Make appointment with an ophthalmologist",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "Consider a private appointment."
   }
 ]

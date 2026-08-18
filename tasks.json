@@ -214,12 +214,19 @@
   {
     "id": "T0017",
     "name": "Check for recording of the AI webinar",
-    "status": "not_started",
+    "status": "cancelled",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-07-15",
     "due_date": "2026-07-20",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Closed without completion.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Closed without completion; no further action planned."
+      }
+    ]
   },
   {
     "id": "T0018",
@@ -457,22 +464,35 @@
   {
     "id": "T0026-2",
     "name": "Complete two Coursiv units during the week ending August 9",
-    "status": "not_started",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-03",
     "due_date": "2026-08-09",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Completed two Coursiv units during the week ending August 9.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Marked complete: completed two Coursiv units during the week ending August 9."
+      }
+    ]
   },
   {
     "id": "T0027",
     "name": "Decide whether to proceed with the electric-shutter repair",
-    "status": "not_started",
+    "status": "in_progress",
     "category": "Errands",
     "priority": 2,
     "effective_date": "2026-08-02",
     "owner": "Yechiel",
-    "notes": "Review the repairman's quote and decide whether to authorize motor replacement, understanding that failure of the motor replacement may require replacing the entire shutter."
+    "notes": "Review the repairman's quote and decide whether to authorize motor replacement, understanding that failure of the motor replacement may require replacing the entire shutter. Getting a second opinion before deciding.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Moved to in progress; getting a second opinion on the proposed repair."
+      }
+    ]
   },
   {
     "id": "T0028",

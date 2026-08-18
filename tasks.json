@@ -728,7 +728,14 @@
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-18",
-    "owner": "Yechiel"
+    "owner": "Yechiel",
+    "notes": "Priority override for 2026-08-19: treat this as the highest-priority task for the day, ahead of all other Priority 1 tasks.",
+    "history": [
+      {
+        "date": "2026-08-19",
+        "note": "Priority override: this task must be treated as the highest-priority task for 2026-08-19, ahead of all other Priority 1 tasks."
+      }
+    ]
   },
   {
     "id": "T0035",

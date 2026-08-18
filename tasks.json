@@ -676,12 +676,18 @@
   {
     "id": "T0032-2",
     "name": "Guidde — Customer Enablement Manager",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Job search",
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Compatibility analysis is underway; the application has not yet been submitted."
+    "notes": "Compatibility analysis and application submission are complete.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Compatibility analysis and application submission are complete."
+      }
+    ]
   },
   {
     "id": "T0033",

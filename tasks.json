@@ -169,7 +169,13 @@
     "effective_date": "2026-07-14",
     "due_date": "2026-07-15",
     "owner": "Yechiel",
-    "notes": "Decision made on regular donations to Ezrat Achim."
+    "notes": "Decision made on regular donations to Ezrat Achim.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Decision made on regular donations to Ezrat Achim."
+      }
+    ]
   },
   {
     "id": "T0015",
@@ -180,7 +186,13 @@
     "effective_date": "2026-07-14",
     "due_date": "2026-07-15",
     "owner": "Yechiel",
-    "notes": "Left a message with Shiran's colleague. Shiran will return my call and make the appointment sometime today."
+    "notes": "Left a message with Shiran's colleague. Shiran will return my call and make the appointment sometime today.",
+    "history": [
+      {
+        "date": "2026-07-20",
+        "note": "Left a message with Shiran's colleague. Shiran will return my call and make the appointment sometime today."
+      }
+    ]
   },
   {
     "id": "T0016",
@@ -191,7 +203,13 @@
     "effective_date": "2026-07-13",
     "due_date": "2026-07-15",
     "owner": "Yechiel",
-    "notes": "Attended event. See ideas.md and new tasks generated."
+    "notes": "Attended event. See ideas.md and new tasks generated.",
+    "history": [
+      {
+        "date": "2026-07-16",
+        "note": "Attended event. See ideas.md and new tasks generated."
+      }
+    ]
   },
   {
     "id": "T0017",
@@ -223,7 +241,13 @@
     "effective_date": "2026-07-20",
     "due_date": "2026-07-20",
     "owner": "Yechiel",
-    "notes": "Completed several course units between July 27 and July 29."
+    "notes": "Completed several course units between July 27 and July 29.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Completed several course units between July 27 and July 29."
+      }
+    ]
   },
   {
     "id": "T0020",
@@ -243,7 +267,13 @@
     "effective_date": "2026-07-26",
     "due_date": "2026-07-26",
     "owner": "Yechiel",
-    "notes": "Signed and returned the forms."
+    "notes": "Signed and returned the forms.",
+    "history": [
+      {
+        "date": "2026-07-27",
+        "note": "Signed and returned the forms."
+      }
+    ]
   },
   {
     "id": "T0022",
@@ -253,7 +283,13 @@
     "priority": 2,
     "effective_date": "2026-07-26",
     "owner": "Yechiel",
-    "notes": "Completed the debrief and preserved the durable presentation and networking summary in knowledge/professional-development/2026-07-15-tekom-event-debrief.md."
+    "notes": "Completed the debrief and preserved the durable presentation and networking summary in knowledge/professional-development/2026-07-15-tekom-event-debrief.md.",
+    "history": [
+      {
+        "date": "2026-08-06",
+        "note": "Completed the tekom event debrief and archived the durable summary in the professional-development knowledge folder."
+      }
+    ]
   },
   {
     "id": "T0023",
@@ -263,7 +299,17 @@
     "priority": 2,
     "effective_date": "2026-07-26",
     "owner": "Yechiel",
-    "notes": "Evaluation concluded positively. Driving instruction is worth pursuing as a contingency career option; execution continues under T0030."
+    "notes": "Evaluation concluded positively. Driving instruction is worth pursuing as a contingency career option; execution continues under T0030.",
+    "history": [
+      {
+        "date": "2026-08-02",
+        "note": "Concluded after speaking with Daphna that driving instruction is worth pursuing further despite an estimated three-to-five-year training and licensing ramp-up."
+      },
+      {
+        "date": "2026-08-06",
+        "note": "Completed the evaluation phase with a positive decision to pursue the driving-instructor path."
+      }
+    ]
   },
   {
     "id": "T0023-1",
@@ -273,7 +319,17 @@
     "priority": 2,
     "effective_date": "2026-07-26",
     "owner": "Yechiel",
-    "notes": "Spoke with Daphna. The career path likely requires at least three and possibly five years of training and licensing, but can be financially rewarding and allow substantial independence. Conclusion: worth pursuing further."
+    "notes": "Spoke with Daphna. The career path likely requires at least three and possibly five years of training and licensing, but can be financially rewarding and allow substantial independence. Conclusion: worth pursuing further.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Daphna replied, and we arranged to speak this afternoon."
+      },
+      {
+        "date": "2026-08-02",
+        "note": "Completed an informative call with Daphna and concluded that the career path is worth pursuing further."
+      }
+    ]
   },
   {
     "id": "T0023-2",
@@ -283,7 +339,13 @@
     "priority": 2,
     "effective_date": "2026-08-02",
     "owner": "Yechiel",
-    "notes": "Spoke with a representative and obtained the prerequisite sequence for admission to the driving-instructor course. Execution is tracked under T0030 and its subtasks."
+    "notes": "Spoke with a representative and obtained the prerequisite sequence for admission to the driving-instructor course. Execution is tracked under T0030 and its subtasks.",
+    "history": [
+      {
+        "date": "2026-08-06",
+        "note": "Spoke with Michlelet Nihulit and obtained the prerequisite sequence for course admission."
+      }
+    ]
   },
   {
     "id": "T0023-3",
@@ -294,7 +356,13 @@
     "effective_date": "2026-08-08",
     "due_date": "2026-08-14",
     "owner": "Yechiel",
-    "notes": "Asked at the Employment Office. Subsidy may be available for eligible training when the course provider is under Ministry of Labor oversight; the exact subsidy depends on the specific course/provider."
+    "notes": "Asked at the Employment Office. Subsidy may be available for eligible training when the course provider is under Ministry of Labor oversight; the exact subsidy depends on the specific course/provider.",
+    "history": [
+      {
+        "date": "2026-08-11",
+        "note": "Asked about support for driving-instructor training. Employment Office support requires a provider under Ministry of Labor oversight; subsidy level depends on the specific course/provider."
+      }
+    ]
   },
   {
     "id": "T0024",
@@ -304,7 +372,17 @@
     "priority": 1,
     "effective_date": "2026-07-27",
     "owner": "Yechiel",
-    "notes": "Repairman inspected the shutter and diagnosed a likely faulty motor. He provided a quote for replacing the motor; if that does not solve the problem, the entire shutter may need replacement. The quote was higher than expected, so no work was authorized pending a decision."
+    "notes": "Repairman inspected the shutter and diagnosed a likely faulty motor. He provided a quote for replacing the motor; if that does not solve the problem, the entire shutter may need replacement. The quote was higher than expected, so no work was authorized pending a decision.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Called the repairman. He said he would come sometime today but did not specify a time; awaiting his arrival or response after follow-up."
+      },
+      {
+        "date": "2026-08-02",
+        "note": "Repairman inspected the shutter, diagnosed a likely faulty motor, and provided a quote. No work was authorized pending a decision."
+      }
+    ]
   },
   {
     "id": "T0025",
@@ -314,7 +392,13 @@
     "priority": 1,
     "effective_date": "2026-07-27",
     "owner": "Yechiel",
-    "notes": "Performed cursory analysis of gaps to address for technical training job eligibility."
+    "notes": "Performed cursory analysis of gaps to address for technical training job eligibility.",
+    "history": [
+      {
+        "date": "2026-07-27",
+        "note": "Performed cursory analysis of gaps to address for technical training job eligibility."
+      }
+    ]
   },
   {
     "id": "T0025-1",
@@ -325,7 +409,13 @@
     "effective_date": "2026-08-08",
     "due_date": "2026-08-14",
     "owner": "Yechiel",
-    "notes": "Asked at the Employment Office. Subsidy may be available for eligible software/technical-training courses when the provider is under Ministry of Labor oversight; the exact subsidy depends on the specific course/provider."
+    "notes": "Asked at the Employment Office. Subsidy may be available for eligible software/technical-training courses when the provider is under Ministry of Labor oversight; the exact subsidy depends on the specific course/provider.",
+    "history": [
+      {
+        "date": "2026-08-11",
+        "note": "Asked about support for software/technical-training courses. Employment Office support requires a provider under Ministry of Labor oversight; subsidy level depends on the specific course/provider."
+      }
+    ]
   },
   {
     "id": "T0025-2",
@@ -356,7 +446,13 @@
     "effective_date": "2026-07-27",
     "due_date": "2026-08-02",
     "owner": "Yechiel",
-    "notes": "Completed at least two Coursiv units during the week ending August 2."
+    "notes": "Completed at least two Coursiv units during the week ending August 2.",
+    "history": [
+      {
+        "date": "2026-07-29",
+        "note": "Completed at least two Coursiv units during the week ending August 2."
+      }
+    ]
   },
   {
     "id": "T0026-2",
@@ -396,7 +492,13 @@
     "priority": 1,
     "effective_date": "2026-08-02",
     "owner": "Yechiel",
-    "notes": "Completed and submitted the Wiz job application."
+    "notes": "Completed and submitted the Wiz job application.",
+    "history": [
+      {
+        "date": "2026-08-02",
+        "note": "Completed and submitted the Wiz job application."
+      }
+    ]
   },
   {
     "id": "T0030",
@@ -416,7 +518,13 @@
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Arrange enough practice sessions to regain comfort driving a manual-transmission car, then take the licensing test. Prior experience driving stick was many years ago in the United States. Inquiries have been made to locate a driving instructor who can provide the necessary practice and licensing preparation."
+    "notes": "Arrange enough practice sessions to regain comfort driving a manual-transmission car, then take the licensing test. Prior experience driving stick was many years ago in the United States. Inquiries have been made to locate a driving instructor who can provide the necessary practice and licensing preparation.",
+    "history": [
+      {
+        "date": "2026-08-11",
+        "note": "Made inquiries to find a driving instructor who can help with practice and licensing on a manual-transmission car."
+      }
+    ]
   },
   {
     "id": "T0030-2",

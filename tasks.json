@@ -658,14 +658,6 @@
     "notes": "Compatibility analysis is underway; the application has not yet been submitted."
   },
   {
-    "id": "T0036-3",
-    "name": "Make appointment with an ophthalmologist",
-    "status": "not_started",
-    "category": "Errands",
-    "priority": 1,
-    "effective_date": "2026-08-18",
-    "owner": "Yechiel",
-    "notes": "Consider a private appointment."
     "id": "T0033",
     "name": "Complete the Customer Enablement lessons",
     "status": "in_progress",
@@ -733,5 +725,15 @@
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel"
+  },
+  {
+    "id": "T0036-3",
+    "name": "Make appointment with an ophthalmologist",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "Consider a private appointment."
   }
 ]

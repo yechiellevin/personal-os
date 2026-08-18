@@ -656,5 +656,21 @@
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
     "notes": "Compatibility analysis is underway; the application has not yet been submitted."
+  },
+  {
+    "id": "T0033",
+    "name": "Complete the Customer Enablement lessons",
+    "status": "in_progress",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-08-12",
+    "owner": "Yechiel",
+    "notes": "Structured skill-development program supporting the pivot into customer and product enablement. Lessons 1 and 2 are complete; Lesson 3 is in progress.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Added the task retroactively to capture work already underway. Lessons 1 and 2 are complete, and Lesson 3 is in progress."
+      }
+    ]
   }
 ]

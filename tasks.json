@@ -643,9 +643,15 @@
     "status": "completed",
     "category": "Job search",
     "priority": 1,
-    "effective_date": "2026-08-18",
+    "effective_date": "2026-08-16",
     "owner": "Yechiel",
-    "notes": "Compatibility analysis and application submission are complete."
+    "notes": "Compatibility analysis and application submission are complete.",
+    "history": [
+      {
+        "date": "2026-08-16",
+        "note": "Compatibility analysis and application submission are complete."
+      }
+    ]
   },
   {
     "id": "T0032-2",

@@ -658,6 +658,30 @@
     "notes": "Compatibility analysis is underway; the application has not yet been submitted."
   },
   {
+    "id": "T0036-3",
+    "name": "Make appointment with an ophthalmologist",
+    "status": "not_started",
+    "category": "Errands",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "Consider a private appointment."
+    "id": "T0033",
+    "name": "Complete the Customer Enablement lessons",
+    "status": "in_progress",
+    "category": "Professional advancement",
+    "priority": 1,
+    "effective_date": "2026-08-12",
+    "owner": "Yechiel",
+    "notes": "Structured skill-development program supporting the pivot into customer and product enablement. Lessons 1 and 2 are complete; Lesson 3 is in progress.",
+    "history": [
+      {
+        "date": "2026-08-18",
+        "note": "Added the task retroactively to capture work already underway. Lessons 1 and 2 are complete, and Lesson 3 is in progress."
+      }
+    ]
+  },
+  {
     "id": "T0034",
     "name": "Return Power of Attorney form to Hevrat Hashmal and make appointment for inspection",
     "status": "in_progress",
@@ -709,15 +733,5 @@
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel"
-  },
-  {
-    "id": "T0036-3",
-    "name": "Make appointment with an ophthalmologist",
-    "status": "not_started",
-    "category": "Errands",
-    "priority": 1,
-    "effective_date": "2026-08-18",
-    "owner": "Yechiel",
-    "notes": "Consider a private appointment."
   }
 ]

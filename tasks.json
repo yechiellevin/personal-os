@@ -690,6 +690,22 @@
     ]
   },
   {
+    "id": "T0032-3",
+    "name": "Buildots — Customer Enablement Manager",
+    "status": "completed",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-08-18",
+    "owner": "Yechiel",
+    "notes": "Compatibility analysis completed and application submitted. During the application work, found and preserved a new documentation sample relevant to Customer Enablement scenarios.",
+    "history": [
+      {
+        "date": "2026-08-19",
+        "note": "Completed after midnight following August 18 work: compatibility analysis completed, application submitted, and a new relevant documentation sample for Customer Enablement scenarios was found and preserved."
+      }
+    ]
+  },
+  {
     "id": "T0033",
     "name": "Complete the Customer Enablement lessons",
     "status": "in_progress",

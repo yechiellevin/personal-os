@@ -708,12 +708,18 @@
   {
     "id": "T0032-4",
     "name": "Cyera — Learning and Development Manager, Technical Support",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Job search",
     "priority": 1,
     "effective_date": "2026-08-19",
     "owner": "Yechiel",
-    "notes": "Today's job lead under T0032. Compatibility analysis/application work to be handled in the dedicated career project and chat."
+    "notes": "Job fit analysis completed and application submitted.",
+    "history": [
+      {
+        "date": "2026-08-19",
+        "note": "Job fit analysis completed and application submitted; task completed."
+      }
+    ]
   },
   {
     "id": "T0033",

@@ -706,6 +706,22 @@
     ]
   },
   {
+    "id": "T0032-4",
+    "name": "Cyera — Learning and Development Manager, Technical Support",
+    "status": "completed",
+    "category": "Job search",
+    "priority": 1,
+    "effective_date": "2026-08-19",
+    "owner": "Yechiel",
+    "notes": "Job fit analysis completed and application submitted.",
+    "history": [
+      {
+        "date": "2026-08-19",
+        "note": "Job fit analysis completed and application submitted; task completed."
+      }
+    ]
+  },
+  {
     "id": "T0033",
     "name": "Complete the Customer Enablement lessons",
     "status": "in_progress",
@@ -724,16 +740,20 @@
   {
     "id": "T0034",
     "name": "Return Power of Attorney form to Hevrat Hashmal and make appointment for inspection",
-    "status": "in_progress",
+    "status": "waiting",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Priority override for 2026-08-19: treat this as the highest-priority task for the day, ahead of all other Priority 1 tasks.",
+    "notes": "Power of Attorney form signed and sent to Hevrat Hashmal. Waiting for their response, promised within 1–5 business days; after their response, make the inspection appointment.",
     "history": [
       {
         "date": "2026-08-19",
         "note": "Priority override: this task must be treated as the highest-priority task for 2026-08-19, ahead of all other Priority 1 tasks."
+      },
+      {
+        "date": "2026-08-19",
+        "note": "Signed and sent the Power of Attorney form to Hevrat Hashmal. Moved to waiting pending their response, promised within 1–5 business days; inspection appointment can be made after they respond."
       }
     ]
   },
@@ -756,7 +776,7 @@
   {
     "id": "T0036",
     "name": "Make doctor's appointments",
-    "status": "not_started",
+    "status": "in_progress",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-18",
@@ -765,12 +785,22 @@
   {
     "id": "T0036-1",
     "name": "Make appointment with Dr. Roness (GP)",
-    "status": "not_started",
+    "status": "completed",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Discuss possible kidney issue and obtain a referral to a urologist if appropriate."
+    "notes": "Appointment with Dr. Roness made. Discuss possible kidney issue and obtain a referral to a urologist if appropriate.",
+    "history": [
+      {
+        "date": "2026-08-19",
+        "note": "Started making the appointment with Dr. Roness."
+      },
+      {
+        "date": "2026-08-19",
+        "note": "Appointment with Dr. Roness made; task completed."
+      }
+    ]
   },
   {
     "id": "T0036-2",

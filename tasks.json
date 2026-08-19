@@ -779,16 +779,20 @@
   {
     "id": "T0036-1",
     "name": "Make appointment with Dr. Roness (GP)",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Discuss possible kidney issue and obtain a referral to a urologist if appropriate. Appointment scheduling is underway.",
+    "notes": "Appointment with Dr. Roness made. Discuss possible kidney issue and obtain a referral to a urologist if appropriate.",
     "history": [
       {
         "date": "2026-08-19",
         "note": "Started making the appointment with Dr. Roness."
+      },
+      {
+        "date": "2026-08-19",
+        "note": "Appointment with Dr. Roness made; task completed."
       }
     ]
   },

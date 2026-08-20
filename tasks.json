@@ -820,5 +820,25 @@
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
     "notes": "Consider a private appointment."
+  },
+  {
+    "id": "T0037",
+    "name": "Develop Agentic AI / AI Agent Systems capability",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-23",
+    "owner": "Yechiel",
+    "notes": "Ongoing professional-development workstream. Long-term objective: over approximately two years, develop the capability to independently design, build, evaluate, and explain AI-enabled systems for documentation, customer enablement, and related knowledge workflows. Use a six-month horizon for the first meaningful capability milestone. Target 4 hours/week, preferably in 60–90 minute sessions; 3 hours/week is the continuity minimum and 5 hours/week the normal ceiling. Do not impose a daily quota. Time-sensitive job-search activity retains precedence. Coordinate with T0033 Customer Enablement learning without assuming either workstream replaces the other."
+  },
+  {
+    "id": "T0037-1",
+    "name": "Complete Agentic AI orientation phase",
+    "status": "not_started",
+    "category": "Professional advancement",
+    "priority": 2,
+    "effective_date": "2026-08-23",
+    "owner": "Yechiel",
+    "notes": "Begin with vocabulary and conceptual relationships before programming or implementation work. The curriculum is still being researched and must not yet be treated as fixed."
   }
 ]

@@ -394,16 +394,20 @@
   {
     "id": "T0025",
     "name": "Explore pivot to technical training as a career option",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 1,
     "effective_date": "2026-07-27",
     "owner": "Yechiel",
-    "notes": "Performed cursory analysis of gaps to address for technical training job eligibility.",
+    "notes": "Exploration concluded. Technical training remains a viable option, but it will not be pursued as a separate active track for now in order to concentrate limited time and attention on Customer Enablement and Agentic AI / AI Agent Systems capability development.",
     "history": [
       {
         "date": "2026-07-27",
         "note": "Performed cursory analysis of gaps to address for technical training job eligibility."
+      },
+      {
+        "date": "2026-08-20",
+        "note": "Closed the exploration as completed. Technical training remains viable, but separate pursuit is being stopped for now to avoid spreading professional-development time and mental energy too thin; execution focus shifts to Customer Enablement and Agentic AI workstreams."
       }
     ]
   },
@@ -427,12 +431,18 @@
   {
     "id": "T0025-2",
     "name": "Identify Ministry of Labor-supervised technical-training courses eligible for Employment Office subsidy",
-    "status": "not_started",
+    "status": "cancelled",
     "category": "Professional advancement",
     "priority": 1,
     "effective_date": "2026-08-11",
     "owner": "Yechiel",
-    "notes": "Focus on courses that address gaps relevant to technical training and product enablement. Confirm Ministry of Labor oversight and determine the available Employment Office subsidy for specific candidates."
+    "notes": "Shelved for now because the separate technical-training track is no longer being actively pursued. Revisit or recreate if circumstances warrant.",
+    "history": [
+      {
+        "date": "2026-08-20",
+        "note": "Cancelled for now as part of pruning the separate technical-training track. This research can be revisited if circumstances later make the path relevant again."
+      }
+    ]
   },
   {
     "id": "T0026",
@@ -523,118 +533,134 @@
   {
     "id": "T0030",
     "name": "Fulfill prerequisites for the Michlelet Nihulit driving-instructor course",
-    "status": "in_progress",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Execution task created after the positive completion of T0023. Items T0030-1 through T0030-3 can proceed in parallel; subsequent steps depend on Ministry of Transport and Machon Pilat processes."
+    "notes": "Warm deferment for capacity reasons, not a rejection of the driving-instructor path. The path remains viable but is not an active workstream while current professional-development and job-search commitments are substantial. Revisit roughly every 4–6 weeks, or sooner if circumstances materially change.",
+    "history": [
+      {
+        "date": "2026-08-20",
+        "note": "Deferred the driving-instructor execution workstream for capacity reasons. Keep it warm rather than abandoned; review approximately every 4–6 weeks or when circumstances change. T0030-3 remains active independently."
+      }
+    ]
   },
   {
     "id": "T0030-1",
     "name": "Obtain a manual-transmission driving license",
-    "status": "in_progress",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Arrange enough practice sessions to regain comfort driving a manual-transmission car, then take the licensing test. Prior experience driving stick was many years ago in the United States. Inquiries have been made to locate a driving instructor who can provide the necessary practice and licensing preparation.",
+    "notes": "Deferred with the driving-instructor workstream. If that path is reactivated, arrange enough practice sessions to regain comfort driving a manual-transmission car, then take the licensing test. Prior experience driving stick was many years ago in the United States.",
     "history": [
       {
         "date": "2026-08-11",
         "note": "Made inquiries to find a driving instructor who can help with practice and licensing on a manual-transmission car."
+      },
+      {
+        "date": "2026-08-20",
+        "note": "Deferred along with the driving-instructor workstream for capacity reasons."
       }
     ]
   },
   {
     "id": "T0030-2",
     "name": "Complete the Ministry of Transport Green Form for license type C1",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Required for the driving-instructor course process regardless of the vehicle class ultimately intended for instruction."
+    "notes": "Deferred with the driving-instructor workstream. Required for the driving-instructor course process regardless of the vehicle class ultimately intended for instruction."
   },
   {
     "id": "T0030-3",
     "name": "Complete an eye test",
     "status": "not_started",
-    "category": "Professional advancement",
+    "category": "Errands",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Required for the course prerequisite process and independently overdue."
+    "notes": "Remain active independently of the deferred driving-instructor workstream. The eye test is independently overdue; the T0030-3 ID is retained for historical continuity even though the task is no longer operationally dependent on T0030.",
+    "history": [
+      {
+        "date": "2026-08-20",
+        "note": "Kept active independently when the driving-instructor workstream was deferred; conceptually no longer treated as dependent on T0030."
+      }
+    ]
   },
   {
     "id": "T0030-4",
     "name": "Contact Moti Elimelech about serving as an inside contact for the driving-instructor path",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Moti Elimelech is the former colleague who first suggested the driving-instructor career option. Ask whether he can provide guidance or introductions within the profession."
+    "notes": "Deferred with the driving-instructor workstream. Moti Elimelech is the former colleague who first suggested the driving-instructor career option."
   },
   {
     "id": "T0030-5",
     "name": "Make an appointment at the Ministry of Transport Talpiot headquarters in Jerusalem",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Request a referral for Machon Pilat's examination of suitability to teach driving."
+    "notes": "Deferred with the driving-instructor workstream. When reactivated, request a referral for Machon Pilat's examination of suitability to teach driving."
   },
   {
     "id": "T0030-6",
     "name": "Investigate Machon Noam preparation options for the Machon Pilat examinations",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Optional. Contact Machon Noam in Jerusalem to clarify whether it offers preparatory materials, a course, or both for the Machon Pilat examinations."
+    "notes": "Deferred with the driving-instructor workstream. Optional preparation research if the path is reactivated."
   },
   {
     "id": "T0030-7",
     "name": "Complete the Machon Pilat suitability examinations",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Contact Machon Pilat and take the required suitability examinations. Current understanding is that these include psychometric, personality, and related assessments. If unsuccessful, reapplication is possible after one year."
+    "notes": "Deferred with the driving-instructor workstream. Current understanding is that these include psychometric, personality, and related assessments; if unsuccessful, reapplication is possible after one year."
   },
   {
     "id": "T0030-8",
     "name": "Obtain referral to Michlelet Nihulit and enroll in the driving-instructor course",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "Conditional on passing the Machon Pilat examinations. After referral and enrollment, a driving test is also required for course admission."
+    "notes": "Deferred with the driving-instructor workstream. Conditional on passing the Machon Pilat examinations."
   },
   {
     "id": "T0030-9",
     "name": "Pass the driving test required for admission to the driving-instructor course",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-06",
     "owner": "Yechiel",
-    "notes": "This appears to be a separate admission requirement from obtaining the manual-transmission license under T0030-1."
+    "notes": "Deferred with the driving-instructor workstream. This appears to be a separate admission requirement from obtaining the manual-transmission license under T0030-1."
   },
   {
     "id": "T0030-10",
     "name": "Identify a Ministry of Labor-supervised driving-instructor course provider eligible for Employment Office subsidy",
-    "status": "not_started",
+    "status": "deferred",
     "category": "Professional advancement",
     "priority": 2,
     "effective_date": "2026-08-11",
     "owner": "Yechiel",
-    "notes": "Confirm Ministry of Labor oversight for candidate course providers, including Michlelet Nihulit if applicable, and determine the available Employment Office subsidy for the specific course/provider."
+    "notes": "Deferred with the driving-instructor workstream. If reactivated, confirm Ministry of Labor oversight for candidate course providers and determine available Employment Office subsidy."
   },
   {
     "id": "T0031",

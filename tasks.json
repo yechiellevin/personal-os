@@ -766,12 +766,12 @@
   {
     "id": "T0034",
     "name": "Return Power of Attorney form to Hevrat Hashmal and make appointment for inspection",
-    "status": "waiting",
+    "status": "in_progress",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Power of Attorney form signed and sent to Hevrat Hashmal. Waiting for their response, promised within 1–5 business days; after their response, make the inspection appointment.",
+    "notes": "Power of Attorney form signed and sent to Hevrat Hashmal. On 2026-08-23, Hevrat Hashmal reported that they had \"handled\" the request without stating the outcome directly. Response dependency cleared; confirm the outcome as needed and make the inspection appointment today.",
     "history": [
       {
         "date": "2026-08-19",
@@ -780,6 +780,10 @@
       {
         "date": "2026-08-19",
         "note": "Signed and sent the Power of Attorney form to Hevrat Hashmal. Moved to waiting pending their response, promised within 1–5 business days; inspection appointment can be made after they respond."
+      },
+      {
+        "date": "2026-08-23",
+        "note": "Hevrat Hashmal reported that they had \"handled\" the Power of Attorney request, without directly stating the outcome. Moved from waiting to in_progress; make the inspection appointment today and confirm the PoA outcome if necessary."
       }
     ]
   },

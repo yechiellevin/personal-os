@@ -771,7 +771,7 @@
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Power of Attorney has been successfully granted. Before Hevrat Hashmal can inspect and approve the apartment for electricity reconnection, a licensed electrician must inspect the apartment, complete and sign the required Hevrat Hashmal form, and submit it. An electrician has been contacted and can inspect as early as 2026-08-24. After the electrician's submission, arrange the Hevrat Hashmal inspection and approval for reconnection.",
+    "notes": "Power of Attorney was successfully granted on 2026-08-19. Before Hevrat Hashmal can inspect and approve the apartment for electricity reconnection, a licensed electrician must inspect the apartment, complete and sign the required Hevrat Hashmal form, and submit it. An electrician has been contacted and can inspect as early as 2026-08-24. After the electrician's submission, arrange the Hevrat Hashmal inspection and approval for reconnection.",
     "history": [
       {
         "date": "2026-08-19",
@@ -787,7 +787,7 @@
       },
       {
         "date": "2026-08-23",
-        "note": "Confirmed that Power of Attorney was successfully granted. Learned that a licensed-electrician inspection and signed Hevrat Hashmal form are required before Hevrat Hashmal's own inspection. Contacted an electrician who can inspect as early as 2026-08-24."
+        "note": "Confirmed on 2026-08-23 that Power of Attorney had been successfully granted on 2026-08-19. Learned that a licensed-electrician inspection and signed Hevrat Hashmal form are required before Hevrat Hashmal's own inspection. Contacted an electrician who can inspect as early as 2026-08-24."
       }
     ]
   },
@@ -803,7 +803,7 @@
     "history": [
       {
         "date": "2026-08-23",
-        "note": "Created as the newly identified prerequisite step after Power of Attorney approval; electrician contacted and available as early as 2026-08-24."
+        "note": "Created as the newly identified prerequisite step after Power of Attorney was granted on 2026-08-19; electrician contacted and available as early as 2026-08-24."
       }
     ]
   },

@@ -31,7 +31,17 @@ The migration is divided into two operations:
 | Import validation | Define count, field, relationship, diary, status, and spot-check validation for the transformed import. | Open |
 | Cutover | Define the freeze, backup, import, validation, rollback, and source-of-truth transition. | Open |
 
-## Resolved behavior: Effective Date
+### Status definitions
+
+- **Open**: No agreed resolution yet.
+- **In progress**: The issue has been discussed or partially decided, but its complete migration rule or acceptance criteria remain unsettled.
+- **Resolved**: The exact migration rule and acceptance criteria have been agreed and documented.
+
+## Resolved behavior
+
+> I'm expanding this section to show resolved behavior for each item in its own subsection.
+
+### Effective Date
 
 - `effective_date` is nullable.
 - An undated task may remain in Backlog indefinitely.
@@ -45,6 +55,48 @@ The migration is divided into two operations:
 - Reactivation retains the complete Task Diary.
 - The app must apply date comparisons using the user's configured timezone.
 - Activation must not depend on a scheduled background workflow; the app can reconcile effective dates when task data is loaded.
+
+> ### Backlog and activation behavior
+> If the items under "Backlog/Deferred view" in the prompt document are finalized, add them here. See my comment about the TBD item -- I don't understand what's required here.  
+> Also, the relevant behavior described in the "Extend the lifecycle" section in the prompt document can be added here as well.
+
+> ### Existing status mapping / Status additions
+> Add a table here with the existing and proposed POS statuses in one column, and the proposed SentinelTask status mapping in the other.
+
+> ### Assignment
+> - Assignment is optional.
+> - Assignment defaults to the current user.
+> - The user can remove himself as an assignee. This removal is automatically recorded in the task diary.
+> - If a task needs to have more than one assignee, it should be created as a parent task, with identical subtasks each assigned to one of the target assignees. The parent task can be marked Done only when each subtask has been marked Done by its respective assignee.
+
+> What do you think?
+
+> ### Category and tag mapping
+> Make a proposal.
+
+> ### Priority mapping
+> My proposal:
+> | POS Priority | SentinelTask Priority |
+> | -- | -- |
+> | P0 (not yet in use) | Critical (replaces Urgent as a priority; `#Urgent` tag remains) |
+> | P1 | High |
+> | P2 | Medium |
+> | P3 | Low |
+
+> ### Notes and history mapping
+> The only unresolved issue here is the current Notes field. I'd like to suggest mapping it to a new `Summary` field. It can appear below or alongside `Description` in displays, and SentinelTask can choose whether to copy it dynamically from the most recent diary entry or to synthesize it anew from the collective content of the diary entries every time a new diary entry is added. I'd prefer the latter, but not if it's too computationally expensive to develop or to run.
+
+> ### Parent/subtask import
+> Anything left to discuss here?
+
+> ### Existing behavior preservation
+> Anything needed here that's not covered in the "Acceptance criteria" section of the prompt document? Oh, I guess that last TBD line there. What else should we add? I'm not an expert in this.
+
+> ### Legacy POS IDs
+> If there's a set of metadata fields already in SentinelTask, let's add it there. I don't think it needs to be exposed anywhere necessarily, as long as it can be queried.
+
+> ### Import Validation and Cutover
+> This is your department.
 
 ## Existing SentinelTask behavior to preserve
 

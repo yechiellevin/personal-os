@@ -2,7 +2,7 @@
 
 > **DRAFT — DO NOT SEND TO BASE44**
 >
-> This prompt is being assembled incrementally. Bracketed `TBD` items are unresolved migration decisions. Submit it only after every placeholder is resolved and the exact final text is explicitly approved.
+> This prompt is being assembled incrementally. Bracketed `TBD` items are unresolved migration decisions. Items in quote format (like this paragraph) are reviewer comments that represent discussion, not decisions. Submit it only after every placeholder is resolved and the exact final text is explicitly approved.
 
 ## Prompt
 
@@ -47,13 +47,17 @@ Integrate these approved statuses into every relevant part of the application: t
 - Existing: To Do, In Progress, Done, Blocked
 - Add: Waiting, Deferred, Cancelled
 - `[TBD: confirm whether Backlog is a stored status or a derived non-actionable state]`
+  > I confirm that Backlog is a stored status, not a derived state.
 
 Use these semantics:
 
 - Waiting: `[TBD]`
+  > Waiting: the task is waiting for expected input from another source. Contrast with `Blocked`.
 - Blocked: `[TBD]`
+  > Blocked: the task is blocked from progressing due to unexpected/unplanned factors. Examples: interlocutor is on vacation for a month; office of external contact is closed for a week, product dependency is unresolved. Contrast with `Waiting`.
 - Deferred: meaningful work began, but the task was subsequently deprioritized or rescheduled.
 - Cancelled: `[TBD]`
+  > Cancelled: task is no longer relevant. Examples: project was abandoned by manager and replaced with a different project.
 - Backlog: the task has never received meaningful work and is intentionally non-actionable, either indefinitely or until a future Effective Date.
 
 Do not add automatic Start Work or diary-driven In Progress rules in this migration. Retain manual status changes unless another requirement in the final approved prompt explicitly changes them.
@@ -70,16 +74,19 @@ Add a separate view for non-actionable Backlog and Deferred tasks. It must:
 - clearly distinguish Backlog from Deferred.
 
 `[TBD: specify exact navigation label, grouping, counts, and treatment of overdue Effective Dates]`
+> Needs more explanation; treat separately.
 
 ### Assignment
 
 `[TBD: add the final assignee requirements, including cardinality, defaults, unassigned behavior, permissions, and display.]`
+> Needs more explanation; treat separately.
 
 ### Migration support
 
 Do not import the POS task records as part of this builder change. The records will be transformed and imported separately after the application change passes testing.
 
 `[TBD: specify any temporary legacy-ID field or import-only metadata required for reconciliation.]`
+> If there's a set of metadata fields already, let's add legacy-id to that.
 
 ### Acceptance criteria
 

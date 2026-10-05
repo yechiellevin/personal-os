@@ -665,13 +665,19 @@
   {
     "id": "T0031",
     "name": "Attend Employment Office career-counselor appointment about retraining subsidies",
-    "status": "not_started",
+    "status": "completed",
     "category": "Professional advancement",
     "priority": 1,
     "effective_date": "2026-09-09",
     "due_date": "2026-09-09",
     "owner": "Yechiel",
-    "notes": "Appointment at 11:50 AM with an Employment Office career counselor. Get detailed guidance on subsidy eligibility and procedures for Ministry of Labor-supervised retraining/upskilling courses, specifically covering driving instruction and technical/software training. A matching Google Calendar event has been created."
+    "notes": "Attended the Employment Office career-counselor meeting and obtained the relevant information about retraining/upskilling subsidies and procedures.",
+    "history": [
+      {
+        "date": "2026-10-05",
+        "note": "Reported complete: attended the career-counselor meeting and obtained the relevant information."
+      }
+    ]
   },
   {
     "id": "T0032",
@@ -766,12 +772,12 @@
   {
     "id": "T0034",
     "name": "Complete Hevrat Hashmal reconnection approval process",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-18",
     "owner": "Yechiel",
-    "notes": "Power of Attorney was successfully granted on 2026-08-19. Before Hevrat Hashmal can inspect and approve the apartment for electricity reconnection, a licensed electrician must inspect the apartment, complete and sign the required Hevrat Hashmal form, and submit it. An electrician has been contacted and can inspect as early as 2026-08-24. After the electrician's submission, arrange the Hevrat Hashmal inspection and approval for reconnection.",
+    "notes": "Hevrat Hashmal inspected the apartment, approved it for reconnection, and electricity was reconnected. Reconnection approval process complete.",
     "history": [
       {
         "date": "2026-08-19",
@@ -788,22 +794,30 @@
       {
         "date": "2026-08-23",
         "note": "Confirmed on 2026-08-23 that Power of Attorney had been successfully granted on 2026-08-19. Learned that a licensed-electrician inspection and signed Hevrat Hashmal form are required before Hevrat Hashmal's own inspection. Contacted an electrician who can inspect as early as 2026-08-24."
+      },
+      {
+        "date": "2026-10-05",
+        "note": "Reported complete: Hevrat Hashmal inspected and approved the apartment and reconnected the electricity."
       }
     ]
   },
   {
     "id": "T0034-1",
     "name": "Have licensed electrician inspect apartment and submit Hevrat Hashmal form",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Errands",
     "priority": 1,
     "effective_date": "2026-08-23",
     "owner": "Yechiel",
-    "notes": "Electrician has been contacted and can inspect the apartment as early as 2026-08-24. The electrician must inspect the apartment, complete and sign the required Hevrat Hashmal form, and submit it so the apartment can then be presented for Hevrat Hashmal inspection and approval to reconnect electricity.",
+    "notes": "Licensed electrician inspected the apartment and submitted the required Hevrat Hashmal forms. Prerequisite step complete.",
     "history": [
       {
         "date": "2026-08-23",
         "note": "Created as the newly identified prerequisite step after Power of Attorney was granted on 2026-08-19; electrician contacted and available as early as 2026-08-24."
+      },
+      {
+        "date": "2026-10-05",
+        "note": "Reported complete: licensed electrician inspected the apartment and submitted the required forms."
       }
     ]
   },

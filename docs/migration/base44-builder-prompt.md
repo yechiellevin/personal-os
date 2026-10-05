@@ -4,6 +4,14 @@
 >
 > This prompt extends the existing application in place. It does not authorize importing the POS task data.
 
+## System context and scope
+
+**SentinelTask** is intended to become the task system of record and day-to-day execution interface for an existing Personal Operating System (POS). The POS is designed to maximize meaningful progress while minimizing cognitive overhead, context switching, and decision fatigue. It distinguishes task activation, calendar availability, priority, task state, and daily scheduling rather than treating them as one concept.
+
+Effective Date is the first task-activation gate: a task must not compete for attention before that date. Once active, its priority, state, deadlines, dependencies, and current context can be considered. SentinelTask’s Focus Mode supports execution after those decisions have been made.
+
+This change does not implement the entire POS operating model, Chief-of-Staff behavior, daily situation review, desk-plan generation, calendar-based scheduling rules, or autonomous intervention. It only prepares SentinelTask to store and present the task concepts required for migration while preserving its current functionality. Those broader behaviors may or may not be designed separately after the task migration, pending evaluation of their effectiveness.
+
 ## Prompt
 
 Extend the existing SentinelTask application to support the Personal Operating System concepts it lacks while preserving all confirmed working behavior. This is an in-place extension of the current application, not a redesign or rebuild.

@@ -491,16 +491,20 @@
   {
     "id": "T0027",
     "name": "Decide whether to proceed with the electric-shutter repair",
-    "status": "in_progress",
+    "status": "completed",
     "category": "Errands",
     "priority": 2,
     "effective_date": "2026-08-02",
     "owner": "Yechiel",
-    "notes": "Review the repairman's quote and decide whether to authorize motor replacement, understanding that failure of the motor replacement may require replacing the entire shutter. Getting a second opinion before deciding.",
+    "notes": "Another repairman offered a smaller, cheaper repair, without replacing the motor. We agreed for him to perform this repair, which involved replacing some small parts and recalibrating the switch. Repair completed.",
     "history": [
       {
         "date": "2026-08-18",
         "note": "Moved to in progress; getting a second opinion on the proposed repair."
+      },
+      {
+        "date": "2026-09-03",
+        "note": "Moved to completed; got second opinion and a smaller repair performed."
       }
     ]
   },

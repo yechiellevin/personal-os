@@ -98,7 +98,7 @@ Apply these rules using the user's configured timezone, or the browser timezone 
 - Backlog and Deferred tasks must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Provide a reusable activation-reconciliation operation that the SentinelTask interface and external POS consumers can invoke before retrieving actionable work. It must not depend solely on opening a particular SentinelTask page. Do not require a scheduled background workflow.
 - When reconciliation finds an eligible Backlog or Deferred task on or after its Effective Date, move it to To Do and persist the change.
-- Reconciliation is idempotent for each effective-date cycle. Assigning a new future Effective Date after deferral begins a new cycle.
+- Reconciliation is idempotent for each effective-date cycle. Assigning a new future Effective Date begins a new cycle.
 - Each date-driven activation must create exactly one system-generated Task Diary entry for that effective-date cycle.
 - The user may change Effective Date without losing diary history.
 - The user may manually activate a Backlog or Deferred task early. Manual activation moves it to To Do, clears `effective_date`, and creates an attributed Task Diary entry.

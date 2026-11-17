@@ -8,6 +8,10 @@ Implementation prompt: [`base44-builder-prompt.md`](base44-builder-prompt.md)
 
 Migrate the current Personal Operating System task data and its migration-critical operating semantics into the existing SentinelTask Base44 application without replacing or regressing SentinelTask's working task-management behavior.
 
+After cutover, SentinelTask will own operational task facts and provide the day-to-day task and focus interface. ChatGPT POS will consume those facts through the Base44 connector or another supported machine interface and apply the broader decision, prioritization, situation-review, and planning rules defined by the POS operating documents. GitHub will continue to hold the governing POS documentation and the archived migration snapshot, but `tasks.json` will no longer be the live task database.
+
+The migration must therefore persist all migration-critical fields on Base44 entities and keep them readable and writable through supported Base44 machine interfaces. A value required by the POS must not exist only in browser state or as an unexposed UI-only calculation.
+
 The migration is divided into two operations:
 
 1. Extend and test the existing SentinelTask application through an explicitly approved Base44 builder prompt.
@@ -17,15 +21,16 @@ The migration is divided into two operations:
 
 | Issue | Resolution | Status |
 | --- | --- | --- |
-| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; reconcile activation on data load; support editing and early activation. | Resolved |
+| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; provide persistent, cycle-idempotent activation reconciliation for both SentinelTask and external POS consumers; support editing and early activation. | Resolved |
+| External POS access | Persist migration-critical task facts on Base44 entities and keep them available through supported machine interfaces rather than only in frontend state. | Resolved |
 | Backlog and activation behavior | Store Backlog and Deferred as distinct statuses; retain non-actionable tasks in an accessible filtered view; define date-driven and manual activation rules. | Resolved |
 | Existing status mapping | Apply the deterministic POS-to-SentinelTask status mapping documented below. | Resolved |
 | Status additions | Add and fully integrate Waiting, Deferred, Cancelled, and Backlog while preserving To Do, In Progress, Done, and Blocked. | Resolved |
 | Assignment | Permit zero or one assignee, default new tasks to the current user, allow assignment to any authorized user, and diary-log assignment changes. | Resolved |
 | Category and tag mapping | Map POS categories to Work or Personal and retain the narrower classification as a normalized tag. | Resolved |
-| Priority mapping | Replace Urgent as a priority with Critical; map P0–P3 to Critical–Low and retain urgency as the `urgent` tag. | Resolved |
+| Priority mapping | Replace Urgent as a priority with Critical; map numeric `0` – `3` to Critical – Low and retain urgency as the `urgent` tag. | Resolved |
 | Notes and history mapping | Add user-maintained `summary`; import POS `notes` verbatim; import POS `history` into Task Diary. | Resolved |
-| Parent/subtask import | Import parents first, retain an old-to-new ID map, then assign child `parent_id` values and validate the hierarchy. | Resolved |
+| Parent/subtask import | Preserve SentinelTask's existing two-level hierarchy: derive immediate child relationships from legacy IDs, flag any deeper legacy pattern for manual flattening or tag-based affiliation, and validate the hierarchy. | Resolved |
 | Existing behavior preservation | Apply the regression criteria in the builder prompt and the validation checks below. | Resolved |
 | Legacy POS IDs | Add optional, queryable `legacy_pos_id` migration metadata and omit it from ordinary task displays. | Resolved |
 | Import validation | Reconcile record, field, relationship, diary, and UI results against a pre-import baseline. | Resolved |
@@ -45,14 +50,17 @@ The migration is divided into two operations:
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
-- When the effective date arrives, the task becomes To Do.
+- When the Effective Date arrives, activation reconciliation moves an eligible Backlog or Deferred task to To Do, persists the change, and creates exactly one activation diary entry for that effective-date cycle.
+- Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
+- Reconciliation is idempotent for each effective-date cycle: repeated calls after activation do not repeat the transition or create duplicate diary entries.
+- Assigning a new future Effective Date begins a new effective-date cycle.
 - The effective date can be changed before activation.
 - A user may promote a task to To Do before its effective date. Early promotion clears `effective_date` and records the transition in the Task Diary.
 - Moving a never-started task to a future effective date places it in Backlog.
 - Moving a task on which meaningful work has begun to a future effective date places it in Deferred.
 - Reactivation retains the complete Task Diary.
 - Date comparisons use the user's configured timezone, falling back to the browser timezone if no profile timezone exists.
-- Activation does not depend on a scheduled background workflow. Effective dates are reconciled when task data is loaded or retrieved.
+- Before actionable task data is returned through SentinelTask or external POS access, invoke activation reconciliation.
 
 ### Backlog and activation behavior
 
@@ -107,13 +115,15 @@ Existing tags are retained, normalized to lowercase kebab-case, and de-duplicate
 
 ### Priority mapping
 
-| POS priority | SentinelTask priority |
+| `tasks.json` priority | SentinelTask priority |
 | --- | --- |
-| P0 | Critical |
-| P1 | High |
-| P2 | Medium |
-| P3 | Low |
+| `0` | Critical |
+| `1` | High |
+| `2` | Medium |
+| `3` | Low |
 | Missing | Medium |
+
+The source values are JSON numbers, not strings such as `P1`. The transformation must reject unexpected non-null values rather than silently coercing them.
 
 Critical replaces Urgent as the highest priority. Urgency remains independently expressible through the `urgent` tag.
 
@@ -125,17 +135,21 @@ For existing SentinelTask records, convert priority Urgent to Critical and add t
 - Import the POS `notes` value into Summary verbatim.
 - New tasks may leave Summary empty; users may populate or edit it manually.
 - Diary activity does not automatically overwrite Summary.
-- Import each POS `history` entry into the Task Diary, preserving its timestamp and note.
+- Import each POS `history` entry into the Task Diary using its source date and note. The source records contain dates rather than exact times; exact time-of-day preservation is therefore not required.
+- Attribute imported history to the authorized Base44 user mapped from the task's POS owner and identify it as imported POS history.
 - The existing Task Diary continues to record user entries, status transitions, and assignment transitions.
 - Automatic or AI-assisted Summary synthesis is a post-migration enhancement.
 
 ### Parent/subtask import
 
+- Preserve SentinelTask's existing two-level hierarchy: top-level tasks may have children, but children may not themselves have children.
+- Treat the POS legacy-ID convention as the authoritative source of hierarchy for this two-level model: a non-hyphenated ID is top-level, and an ID with a single hyphenated suffix is its child.
+- Operational independence or separate scheduling does not by itself remove the structural parent relationship encoded by the legacy ID.
+- If a deeper legacy-ID pattern appears, flag it for manual flattening before import and use normalized tags where broader affiliation must be preserved.
 - Import top-level tasks first.
 - Record each `legacy_pos_id` and its new Base44 record ID.
 - Import or update child tasks with the mapped Base44 `parent_id`.
-- Preserve arbitrary nesting supported by SentinelTask.
-- Reject or flag missing parents, orphaned children, duplicate legacy IDs, and relationship cycles.
+- Reject or flag missing parents, orphaned children, duplicate legacy IDs, relationship cycles, and nesting beyond two levels.
 - Verify mixed-status children remain nested beneath the correct parent.
 
 ### Legacy POS IDs
@@ -160,7 +174,7 @@ Add one visually subordinate **Later** card beside, rather than among, the prima
 
 - Task list and status grouping
 - Add and edit task dialogs
-- Nested subtasks and correct `parent_id` relationships
+- Two-level parent/subtask nesting and correct `parent_id` relationships
 - Task Diary entries, timestamps, user attribution, and automatic status-change entries
 - Focus locking and the Focus Mode task list
 - Configurable 25/50/90-minute focus timer behavior
@@ -179,16 +193,18 @@ Validate the transformed dataset before writing:
 - every migrated record has a unique `legacy_pos_id`;
 - every value conforms to the target schema and mapping tables;
 - dates use the expected ISO formats;
-- every owner maps to an authorized Base44 user or is explicitly left unassigned;
+- every distinct POS owner is resolved through an explicit owner-to-Base44-user-ID mapping; the current `Yechiel` value must map to the authorized Base44 account rather than by display-name inference;
 - every parent reference resolves without cycles; and
-- every history entry has a valid timestamp and note.
+- every history entry has a valid source date and note.
 
 After import, verify:
 
 - exact total and per-status record counts;
 - exact coverage and uniqueness of `legacy_pos_id`;
 - top-level and child counts, parent relationships, and absence of orphans or cycles;
-- mapped categories, tags, priorities, dates, assignees, summaries, and diary-entry counts;
+- mapped categories, tags, numeric priorities, dates, assignees, summaries, and diary-entry counts;
+- connector/API visibility of the migration-critical stored fields;
+- correct, idempotent activation reconciliation through both the SentinelTask UI path and the external POS access path;
 - representative spot checks from every source status and category;
 - mixed-status hierarchy display;
 - Later-card counts and filtering;
@@ -222,7 +238,7 @@ Any unexplained record loss, duplicate, broken relationship, diary loss, or sche
 - Autonomous reminders, escalations, or metaphorical “electric shocks”
 - Automatic or AI-assisted Summary synthesis
 - Additional task-list view modes
-- Superagent orchestration and cross-app workflows
+- External POS orchestration, scheduled monitoring, Superagent behavior, and cross-app workflows
 
 ## Definition of migration readiness
 
@@ -230,6 +246,6 @@ The migration is ready to execute only when:
 
 - the final builder prompt has been explicitly approved before submission;
 - the Base44 application changes pass all regression criteria;
-- the transformation rules produce a valid dry run;
+- the transformation rules produce a valid dry run, including the derived parent relationships and owner mapping;
 - backups and rollback materials are available; and
 - the validation criteria pass without unexplained exceptions.

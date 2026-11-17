@@ -10,7 +10,9 @@
 
 Effective Date is the first task-activation gate: a task must not compete for attention before that date. Once active, its priority, state, deadlines, dependencies, and current context can be considered. SentinelTask’s Focus Mode supports execution after those decisions have been made.
 
-This change does not implement the entire POS operating model, Chief-of-Staff behavior, daily situation review, desk-plan generation, calendar-based scheduling rules, or autonomous intervention. It only prepares SentinelTask to store and present the task concepts required for migration while preserving its current functionality. Those broader behaviors may or may not be designed separately after the task migration, pending evaluation of their effectiveness.
+After cutover, SentinelTask will be the task system of record and day-to-day execution interface. ChatGPT POS will remain the separate decision-support layer that applies the broader POS operating rules for prioritization, situation review, planning, and later automation. GitHub will continue to hold the governing POS documentation and archived migration materials, but not the live task database.
+
+This change does not implement the entire POS operating model, Chief-of-Staff behavior, daily situation review, desk-plan generation, calendar-based scheduling rules, or autonomous intervention. It only prepares SentinelTask to store and present the task concepts required for migration while preserving its current functionality. Do not embed those broader decision behaviors in SentinelTask as part of this change.
 
 ## Prompt
 
@@ -23,7 +25,7 @@ Preserve the current:
 - task creation and editing;
 - Work and Personal categories;
 - verbal priority levels and tags;
-- nested subtasks and correct parent-child relationships;
+- two-level parent/subtask nesting and correct parent-child relationships;
 - Task Diary, including automatic timestamps, user attribution, and automatic entries for status changes;
 - task locking and Focus Mode;
 - 25-, 50-, and 90-minute focus timer behavior;
@@ -33,6 +35,8 @@ Preserve the current:
 Do not alter or replace these behaviors except where a requirement below explicitly calls for a compatible extension.
 
 ### Extend the Task schema
+
+Persist every migration-critical value on Base44 entities and keep it available through supported Base44 machine interfaces, including the connector/API used by external POS consumers. Do not implement any required task fact solely as browser state or an unexposed frontend-only calculation.
 
 Add these nullable fields:
 
@@ -92,8 +96,10 @@ Apply these rules using the user's configured timezone, or the browser timezone 
 - A future-effective task on which meaningful work has never begun belongs in Backlog.
 - A future-effective task on which meaningful work began belongs in Deferred.
 - Backlog and Deferred tasks must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
-- When the Effective Date arrives, reconcile the task to To Do when task data is loaded or retrieved. Do not require a scheduled background workflow.
-- Date-driven activation must create a system-generated Task Diary entry.
+- Provide a reusable activation-reconciliation operation that the SentinelTask interface and external POS consumers can invoke before retrieving actionable work. It must not depend solely on opening a particular SentinelTask page. Do not require a scheduled background workflow.
+- When reconciliation finds an eligible Backlog or Deferred task on or after its Effective Date, move it to To Do and persist the change.
+- Reconciliation is idempotent for each effective-date cycle. Assigning a new future Effective Date begins a new cycle.
+- Each date-driven activation must create exactly one system-generated Task Diary entry for that effective-date cycle.
 - The user may change Effective Date without losing diary history.
 - The user may manually activate a Backlog or Deferred task early. Manual activation moves it to To Do, clears `effective_date`, and creates an attributed Task Diary entry.
 - Backlog may remain undated indefinitely.
@@ -137,13 +143,14 @@ Expose Summary in New Task, Edit Task, and the task display, separately from Des
 
 ### Preserve and harden subtask behavior
 
-Preserve arbitrary nesting and the existing parent-based display, including children whose statuses differ from their parent's status.
+Preserve the existing two-level parent/subtask hierarchy and parent-based display, including children whose statuses differ from their parent's status. A task that already has a parent must not itself receive subtasks.
 
 Verify that:
 
 - Add Task and Add Subtask open with empty values rather than retaining values from the previous invocation;
 - Add Subtask identifies the correct parent;
 - a newly created child receives the correct `parent_id`;
+- tasks that already have a parent cannot themselves receive subtasks;
 - mixed-status children remain displayed beneath their parent; and
 - existing parent-child relationships remain unchanged.
 
@@ -155,6 +162,7 @@ Do not import POS task records as part of this builder change. They will be tran
 - Keep `legacy_pos_id` optional and hidden from ordinary UI.
 - New tasks created after cutover do not require `legacy_pos_id`.
 - Ensure the schema and interface can accept the category, tag, priority, status, assignment, Summary, diary, Effective Date, and parent mappings described above.
+- Ensure external POS consumers can read and write the persisted migration-critical fields and invoke activation reconciliation through a supported Base44 machine interface.
 
 ### Acceptance criteria
 
@@ -168,12 +176,13 @@ Before considering the change complete, verify that:
 6. Focus locking, Focus Mode, and the timer still work for actionable tasks.
 7. Backlog, Deferred, and future-effective tasks are absent from actionable views, counts, and Focus Mode.
 8. The Later card shows separate accurate Backlog and Deferred counts, remains visually subordinate, and opens the correct filtered view.
-9. An eligible task becomes To Do when task data is loaded on or after its Effective Date in the user's applicable timezone.
-10. Manual early activation and editing Effective Date work correctly without losing diary history.
-11. Every added status and priority is supported consistently throughout the schema, interface, filtering, counts, and diary.
-12. New tasks default assignment to the current user; authorized-user reassignment and unassignment work.
-13. Summary can be created, displayed, edited, and left empty without being overwritten by diary activity.
-14. `legacy_pos_id` is queryable but absent from ordinary task displays and forms.
-15. Work/Personal filters, normalized tags, task grouping, summary counts, and the Calendar panel have not regressed.
+9. An eligible Backlog or Deferred task becomes To Do when activation reconciliation runs on or after its Effective Date in the user's applicable timezone, whether invoked through SentinelTask or the supported external POS access path.
+10. Repeating activation reconciliation for a given effective-date cycle after activation leaves the status unchanged and does not create another activation diary entry.
+11. Manual early activation and editing Effective Date work correctly without losing diary history.
+12. Every added status and priority is supported consistently throughout the schema, interface, filtering, counts, and diary.
+13. New tasks default assignment to the current user; authorized-user reassignment and unassignment work.
+14. Summary can be created, displayed, edited, and left empty without being overwritten by diary activity.
+15. `legacy_pos_id` and all other migration-critical stored fields are queryable through the supported external POS access path, while `legacy_pos_id` remains absent from ordinary task displays and forms.
+16. Work/Personal filters, normalized tags, task grouping, summary counts, and the Calendar panel have not regressed.
 
 When finished, summarize the schema changes, interface changes, transition rules, data-preservation measures, and tests performed. Do not import POS data or make unrelated design changes.

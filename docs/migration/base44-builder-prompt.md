@@ -10,7 +10,7 @@
 
 Effective Date is the first task-activation gate: a task must not compete for attention before that date. Once active, its priority, state, deadlines, dependencies, and current context can be considered. SentinelTask’s Focus Mode supports execution after those decisions have been made.
 
-After cutover, SentinelTask will be the task system of record and day-to-day execution interface. ChatGPT POS/COS will remain the separate decision-support layer that applies the broader POS operating rules for prioritization, situation review, planning, and later automation. GitHub will continue to hold the governing POS documentation and archived migration materials, but not the live task database.
+After cutover, SentinelTask will be the task system of record and day-to-day execution interface. ChatGPT POS will remain the separate decision-support layer that applies the broader POS operating rules for prioritization, situation review, planning, and later automation. GitHub will continue to hold the governing POS documentation and archived migration materials, but not the live task database.
 
 This change does not implement the entire POS operating model, Chief-of-Staff behavior, daily situation review, desk-plan generation, calendar-based scheduling rules, or autonomous intervention. It only prepares SentinelTask to store and present the task concepts required for migration while preserving its current functionality. Do not embed those broader decision behaviors in SentinelTask as part of this change.
 
@@ -96,10 +96,10 @@ Apply these rules using the user's configured timezone, or the browser timezone 
 - A future-effective task on which meaningful work has never begun belongs in Backlog.
 - A future-effective task on which meaningful work began belongs in Deferred.
 - Backlog and Deferred tasks must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
-- Provide a reusable activation-reconciliation operation that the SentinelTask interface and external POS/COS consumers can invoke before retrieving actionable work. It must not depend solely on opening a particular SentinelTask page. Do not require a scheduled background workflow.
+- Provide a reusable activation-reconciliation operation that the SentinelTask interface and external POS consumers can invoke before retrieving actionable work. It must not depend solely on opening a particular SentinelTask page. Do not require a scheduled background workflow.
 - When reconciliation finds an eligible Backlog or Deferred task on or after its Effective Date, move it to To Do and persist the change.
-- Reconciliation must be idempotent: repeated loads or calls after activation must not repeat the transition or create duplicate Task Diary entries.
-- Date-driven activation must create exactly one system-generated Task Diary entry.
+- Reconciliation is idempotent for each effective-date cycle. Assigning a new future Effective Date after deferral begins a new cycle.
+- Each date-driven activation must create exactly one system-generated Task Diary entry for that effective-date cycle.
 - The user may change Effective Date without losing diary history.
 - The user may manually activate a Backlog or Deferred task early. Manual activation moves it to To Do, clears `effective_date`, and creates an attributed Task Diary entry.
 - Backlog may remain undated indefinitely.
@@ -161,7 +161,7 @@ Do not import POS task records as part of this builder change. They will be tran
 - Keep `legacy_pos_id` optional and hidden from ordinary UI.
 - New tasks created after cutover do not require `legacy_pos_id`.
 - Ensure the schema and interface can accept the category, tag, priority, status, assignment, Summary, diary, Effective Date, and parent mappings described above.
-- Ensure external POS/COS consumers can read and write the persisted migration-critical fields and invoke activation reconciliation through a supported Base44 machine interface.
+- Ensure external POS consumers can read and write the persisted migration-critical fields and invoke activation reconciliation through a supported Base44 machine interface.
 
 ### Acceptance criteria
 
@@ -175,8 +175,8 @@ Before considering the change complete, verify that:
 6. Focus locking, Focus Mode, and the timer still work for actionable tasks.
 7. Backlog, Deferred, and future-effective tasks are absent from actionable views, counts, and Focus Mode.
 8. The Later card shows separate accurate Backlog and Deferred counts, remains visually subordinate, and opens the correct filtered view.
-9. An eligible Backlog or Deferred task becomes To Do when activation reconciliation runs on or after its Effective Date in the user's applicable timezone, whether invoked through SentinelTask or the supported external POS/COS access path.
-10. Repeating activation reconciliation after activation leaves the status unchanged and does not create another activation diary entry.
+9. An eligible Backlog or Deferred task becomes To Do when activation reconciliation runs on or after its Effective Date in the user's applicable timezone, whether invoked through SentinelTask or the supported external POS access path.
+10. Repeating activation reconciliation for a given effective-date cycle after activation leaves the status unchanged and does not create another activation diary entry.
 11. Manual early activation and editing Effective Date work correctly without losing diary history.
 12. Every added status and priority is supported consistently throughout the schema, interface, filtering, counts, and diary.
 13. New tasks default assignment to the current user; authorized-user reassignment and unassignment work.

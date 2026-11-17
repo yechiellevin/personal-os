@@ -8,7 +8,7 @@ Implementation prompt: [`base44-builder-prompt.md`](base44-builder-prompt.md)
 
 Migrate the current Personal Operating System task data and its migration-critical operating semantics into the existing SentinelTask Base44 application without replacing or regressing SentinelTask's working task-management behavior.
 
-After cutover, SentinelTask will own operational task facts and provide the day-to-day task and focus interface. ChatGPT POS/COS will consume those facts through the Base44 connector or another supported machine interface and apply the broader decision, prioritization, situation-review, and planning rules defined by the POS operating documents. GitHub will continue to hold the governing POS documentation and the archived migration snapshot, but `tasks.json` will no longer be the live task database.
+After cutover, SentinelTask will own operational task facts and provide the day-to-day task and focus interface. ChatGPT POS will consume those facts through the Base44 connector or another supported machine interface and apply the broader decision, prioritization, situation-review, and planning rules defined by the POS operating documents. GitHub will continue to hold the governing POS documentation and the archived migration snapshot, but `tasks.json` will no longer be the live task database.
 
 The migration must therefore persist all migration-critical fields on Base44 entities and keep them readable and writable through supported Base44 machine interfaces. A value required by the POS must not exist only in browser state or as an unexposed UI-only calculation.
 
@@ -50,9 +50,10 @@ The migration is divided into two operations:
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
-- When the effective date arrives, activation reconciliation moves an eligible Backlog or Deferred task to To Do, persists the change, and creates exactly one activation diary entry.
-- Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS/COS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
-- Reconciliation must be idempotent: once a task has been activated, later loads or calls do not repeat the transition or create duplicate diary entries.
+- When the Effective Date arrives, activation reconciliation moves an eligible Backlog or Deferred task to To Do, persists the change, and creates exactly one activation diary entry for that effective-date cycle.
+- Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
+- Reconciliation is idempotent for each effective-date cycle: repeated calls after activation do not repeat the transition or create duplicate diary entries.
+- Assigning a new future Effective Date begins a new effective-date cycle.
 - The effective date can be changed before activation.
 - A user may promote a task to To Do before its effective date. Early promotion clears `effective_date` and records the transition in the Task Diary.
 - Moving a never-started task to a future effective date places it in Backlog.
@@ -203,7 +204,7 @@ After import, verify:
 - top-level and child counts, parent relationships, and absence of orphans or cycles;
 - mapped categories, tags, numeric priorities, dates, assignees, summaries, and diary-entry counts;
 - connector/API visibility of the migration-critical stored fields;
-- correct, idempotent activation reconciliation through both the SentinelTask UI path and the external POS/COS access path;
+- correct, idempotent activation reconciliation through both the SentinelTask UI path and the external POS access path;
 - representative spot checks from every source status and category;
 - mixed-status hierarchy display;
 - Later-card counts and filtering;
@@ -237,7 +238,7 @@ Any unexplained record loss, duplicate, broken relationship, diary loss, or sche
 - Autonomous reminders, escalations, or metaphorical “electric shocks”
 - Automatic or AI-assisted Summary synthesis
 - Additional task-list view modes
-- External POS/COS orchestration, scheduled monitoring, Superagent behavior, and cross-app workflows
+- External POS orchestration, scheduled monitoring, Superagent behavior, and cross-app workflows
 
 ## Definition of migration readiness
 

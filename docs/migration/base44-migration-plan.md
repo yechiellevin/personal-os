@@ -21,7 +21,7 @@ The migration is divided into two operations:
 
 | Issue | Resolution | Status |
 | --- | --- | --- |
-| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; provide an idempotent reconciliation operation usable by both the UI and external POS consumers; support editing and early activation. | Resolved |
+| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; reconcile eligible tasks when SentinelTask loads them; support editing and early activation. | Resolved |
 | External POS access | Persist migration-critical task facts on Base44 entities and keep them available through supported machine interfaces rather than only in frontend state. | Resolved |
 | Backlog and activation behavior | Store Backlog and Deferred as distinct statuses; retain non-actionable tasks in an accessible filtered view; define date-driven and manual activation rules. | Resolved |
 | Existing status mapping | Apply the deterministic POS-to-SentinelTask status mapping documented below. | Resolved |
@@ -50,9 +50,7 @@ The migration is divided into two operations:
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
-- When the effective date arrives, the task becomes To Do after activation reconciliation.
-- Reconciliation must be callable by both the SentinelTask interface and external POS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
-- Reconciliation must be idempotent: once a task has been activated, later loads or calls must not repeat the transition or create duplicate diary entries.
+- When SentinelTask loads a Backlog or Deferred task on or after its effective date, it becomes To Do and receives one activation diary entry. Once its status has changed, later loads do not repeat the transition.
 - The effective date can be changed before activation.
 - A user may promote a task to To Do before its effective date. Early promotion clears `effective_date` and records the transition in the Task Diary.
 - Moving a never-started task to a future effective date places it in Backlog.
@@ -134,9 +132,8 @@ For existing SentinelTask records, convert priority Urgent to Critical and add t
 - Import the POS `notes` value into Summary verbatim.
 - New tasks may leave Summary empty; users may populate or edit it manually.
 - Diary activity does not automatically overwrite Summary.
-- Import each POS `history` entry into the Task Diary, preserving its source date and note.
-- Source history entries contain calendar dates without times. Preserve that date precision explicitly and do not present an invented time of day as source data. If Base44 requires a datetime for ordering, use a documented deterministic normalization and mark the entry as imported date-only history.
-- Attribute imported history to the authorized Base44 user mapped from the task's POS owner and visibly distinguish it from diary activity created natively in SentinelTask.
+- Import each POS `history` entry into the Task Diary using its source date and note. The source records contain dates rather than exact times; exact time-of-day preservation is therefore not required.
+- Attribute imported history to the authorized Base44 user mapped from the task's POS owner and identify it as imported POS history.
 - The existing Task Diary continues to record user entries, status transitions, and assignment transitions.
 - Automatic or AI-assisted Summary synthesis is a post-migration enhancement.
 
@@ -145,7 +142,6 @@ For existing SentinelTask records, convert priority Urgent to Critical and add t
 - Treat the POS legacy-ID convention as the authoritative source of hierarchy: a non-hyphenated ID is top-level, and a hyphenated suffix denotes a child of the ID obtained by removing the final hyphenated segment.
 - Apply the rule recursively if deeper nesting appears; for example, `T0100-2-1` is a child of `T0100-2`.
 - Operational independence or separate scheduling does not by itself remove the structural parent relationship encoded by the legacy ID.
-- Generate and validate a pre-import hierarchy manifest containing `legacy_pos_id` and derived `legacy_parent_id` before writing any records.
 - Import top-level tasks first.
 - Record each `legacy_pos_id` and its new Base44 record ID.
 - Import or update child tasks with the mapped Base44 `parent_id`.
@@ -196,7 +192,7 @@ Validate the transformed dataset before writing:
 - dates use the expected ISO formats;
 - every distinct POS owner is resolved through an explicit owner-to-Base44-user-ID mapping; the current `Yechiel` value must map to the authorized Base44 account rather than by display-name inference;
 - every parent reference resolves without cycles; and
-- every history entry has a valid source date and note, and every date-only entry uses the documented import normalization without claiming false time-of-day precision.
+- every history entry has a valid source date and note.
 
 After import, verify:
 
@@ -204,8 +200,7 @@ After import, verify:
 - exact coverage and uniqueness of `legacy_pos_id`;
 - top-level and child counts, parent relationships, and absence of orphans or cycles;
 - mapped categories, tags, numeric priorities, dates, assignees, summaries, and diary-entry counts;
-- connector/API visibility of every migration-critical stored field;
-- idempotent activation reconciliation through both the SentinelTask UI path and the external POS access path;
+- connector/API visibility of the migration-critical stored fields;
 - representative spot checks from every source status and category;
 - mixed-status hierarchy display;
 - Later-card counts and filtering;
@@ -247,6 +242,6 @@ The migration is ready to execute only when:
 
 - the final builder prompt has been explicitly approved before submission;
 - the Base44 application changes pass all regression criteria;
-- the transformation rules produce a valid dry run, including the hierarchy manifest, owner mapping, and date-only history normalization;
+- the transformation rules produce a valid dry run, including the derived parent relationships and owner mapping;
 - backups and rollback materials are available; and
 - the validation criteria pass without unexplained exceptions.

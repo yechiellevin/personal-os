@@ -21,7 +21,7 @@ The migration is divided into two operations:
 
 | Issue | Resolution | Status |
 | --- | --- | --- |
-| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; reconcile eligible tasks when SentinelTask loads them; support editing and early activation. | Resolved |
+| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; provide persistent, idempotent activation reconciliation for both SentinelTask and external POS/COS consumers; support editing and early activation. | Resolved |
 | External POS access | Persist migration-critical task facts on Base44 entities and keep them available through supported machine interfaces rather than only in frontend state. | Resolved |
 | Backlog and activation behavior | Store Backlog and Deferred as distinct statuses; retain non-actionable tasks in an accessible filtered view; define date-driven and manual activation rules. | Resolved |
 | Existing status mapping | Apply the deterministic POS-to-SentinelTask status mapping documented below. | Resolved |
@@ -50,7 +50,9 @@ The migration is divided into two operations:
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
-- When SentinelTask loads a Backlog or Deferred task on or after its effective date, it becomes To Do and receives one activation diary entry. Once its status has changed, later loads do not repeat the transition.
+- When the effective date arrives, activation reconciliation moves an eligible Backlog or Deferred task to To Do, persists the change, and creates exactly one activation diary entry.
+- Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS/COS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
+- Reconciliation must be idempotent: once a task has been activated, later loads or calls do not repeat the transition or create duplicate diary entries.
 - The effective date can be changed before activation.
 - A user may promote a task to To Do before its effective date. Early promotion clears `effective_date` and records the transition in the Task Diary.
 - Moving a never-started task to a future effective date places it in Backlog.
@@ -201,6 +203,7 @@ After import, verify:
 - top-level and child counts, parent relationships, and absence of orphans or cycles;
 - mapped categories, tags, numeric priorities, dates, assignees, summaries, and diary-entry counts;
 - connector/API visibility of the migration-critical stored fields;
+- correct, idempotent activation reconciliation through both the SentinelTask UI path and the external POS/COS access path;
 - representative spot checks from every source status and category;
 - mixed-status hierarchy display;
 - Later-card counts and filtering;

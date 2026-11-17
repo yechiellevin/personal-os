@@ -25,7 +25,7 @@ Preserve the current:
 - task creation and editing;
 - Work and Personal categories;
 - verbal priority levels and tags;
-- nested subtasks and correct parent-child relationships;
+- two-level parent/subtask nesting and correct parent-child relationships;
 - Task Diary, including automatic timestamps, user attribution, and automatic entries for status changes;
 - task locking and Focus Mode;
 - 25-, 50-, and 90-minute focus timer behavior;

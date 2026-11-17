@@ -21,14 +21,14 @@ The migration is divided into two operations:
 
 | Issue | Resolution | Status |
 | --- | --- | --- |
-| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; provide persistent, idempotent activation reconciliation for both SentinelTask and external POS/COS consumers; support editing and early activation. | Resolved |
+| Effective Date | Add nullable `effective_date`; exclude future-effective tasks from actionable competition; provide persistent, cycle-idempotent activation reconciliation for both SentinelTask and external POS consumers; support editing and early activation. | Resolved |
 | External POS access | Persist migration-critical task facts on Base44 entities and keep them available through supported machine interfaces rather than only in frontend state. | Resolved |
 | Backlog and activation behavior | Store Backlog and Deferred as distinct statuses; retain non-actionable tasks in an accessible filtered view; define date-driven and manual activation rules. | Resolved |
 | Existing status mapping | Apply the deterministic POS-to-SentinelTask status mapping documented below. | Resolved |
 | Status additions | Add and fully integrate Waiting, Deferred, Cancelled, and Backlog while preserving To Do, In Progress, Done, and Blocked. | Resolved |
 | Assignment | Permit zero or one assignee, default new tasks to the current user, allow assignment to any authorized user, and diary-log assignment changes. | Resolved |
 | Category and tag mapping | Map POS categories to Work or Personal and retain the narrower classification as a normalized tag. | Resolved |
-| Priority mapping | Replace Urgent as a priority with Critical; map P0–P3 to Critical–Low and retain urgency as the `urgent` tag. | Resolved |
+| Priority mapping | Replace Urgent as a priority with Critical; map numeric `0` – `3` to Critical – Low and retain urgency as the `urgent` tag. | Resolved |
 | Notes and history mapping | Add user-maintained `summary`; import POS `notes` verbatim; import POS `history` into Task Diary. | Resolved |
 | Parent/subtask import | Preserve SentinelTask's existing two-level hierarchy: derive immediate child relationships from legacy IDs, flag any deeper legacy pattern for manual flattening or tag-based affiliation, and validate the hierarchy. | Resolved |
 | Existing behavior preservation | Apply the regression criteria in the builder prompt and the validation checks below. | Resolved |
@@ -60,7 +60,7 @@ The migration is divided into two operations:
 - Moving a task on which meaningful work has begun to a future effective date places it in Deferred.
 - Reactivation retains the complete Task Diary.
 - Date comparisons use the user's configured timezone, falling back to the browser timezone if no profile timezone exists.
-- Activation does not depend on a scheduled background workflow. Effective dates are reconciled when task data is loaded or retrieved.
+- Before actionable task data is returned through SentinelTask or external POS access, invoke activation reconciliation.
 
 ### Backlog and activation behavior
 

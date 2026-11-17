@@ -143,13 +143,14 @@ Expose Summary in New Task, Edit Task, and the task display, separately from Des
 
 ### Preserve and harden subtask behavior
 
-Preserve arbitrary nesting and the existing parent-based display, including children whose statuses differ from their parent's status.
+Preserve the existing two-level parent/subtask hierarchy and parent-based display, including children whose statuses differ from their parent's status. A task that already has a parent must not itself receive subtasks.
 
 Verify that:
 
 - Add Task and Add Subtask open with empty values rather than retaining values from the previous invocation;
 - Add Subtask identifies the correct parent;
 - a newly created child receives the correct `parent_id`;
+- tasks that already have a parent cannot themselves receive subtasks;
 - mixed-status children remain displayed beneath their parent; and
 - existing parent-child relationships remain unchanged.
 

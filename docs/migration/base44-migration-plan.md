@@ -30,7 +30,7 @@ The migration is divided into two operations:
 | Category and tag mapping | Map POS categories to Work or Personal and retain the narrower classification as a normalized tag. | Resolved |
 | Priority mapping | Replace Urgent as a priority with Critical; map P0–P3 to Critical–Low and retain urgency as the `urgent` tag. | Resolved |
 | Notes and history mapping | Add user-maintained `summary`; import POS `notes` verbatim; import POS `history` into Task Diary. | Resolved |
-| Parent/subtask import | Import parents first, retain an old-to-new ID map, then assign child `parent_id` values and validate the hierarchy. | Resolved |
+| Parent/subtask import | Preserve SentinelTask's existing two-level hierarchy: derive immediate child relationships from legacy IDs, flag any deeper legacy pattern for manual flattening or tag-based affiliation, and validate the hierarchy. | Resolved |
 | Existing behavior preservation | Apply the regression criteria in the builder prompt and the validation checks below. | Resolved |
 | Legacy POS IDs | Add optional, queryable `legacy_pos_id` migration metadata and omit it from ordinary task displays. | Resolved |
 | Import validation | Reconcile record, field, relationship, diary, and UI results against a pre-import baseline. | Resolved |
@@ -142,14 +142,14 @@ For existing SentinelTask records, convert priority Urgent to Critical and add t
 
 ### Parent/subtask import
 
-- Treat the POS legacy-ID convention as the authoritative source of hierarchy: a non-hyphenated ID is top-level, and a hyphenated suffix denotes a child of the ID obtained by removing the final hyphenated segment.
-- Apply the rule recursively if deeper nesting appears; for example, `T0100-2-1` is a child of `T0100-2`.
+- Preserve SentinelTask's existing two-level hierarchy: top-level tasks may have children, but children may not themselves have children.
+- Treat the POS legacy-ID convention as the authoritative source of hierarchy for this two-level model: a non-hyphenated ID is top-level, and an ID with a single hyphenated suffix is its child.
 - Operational independence or separate scheduling does not by itself remove the structural parent relationship encoded by the legacy ID.
+- If a deeper legacy-ID pattern appears, flag it for manual flattening before import and use normalized tags where broader affiliation must be preserved.
 - Import top-level tasks first.
 - Record each `legacy_pos_id` and its new Base44 record ID.
 - Import or update child tasks with the mapped Base44 `parent_id`.
-- Preserve arbitrary nesting supported by SentinelTask.
-- Reject or flag missing parents, orphaned children, duplicate legacy IDs, and relationship cycles.
+- Reject or flag missing parents, orphaned children, duplicate legacy IDs, relationship cycles, and nesting beyond two levels.
 - Verify mixed-status children remain nested beneath the correct parent.
 
 ### Legacy POS IDs
@@ -174,7 +174,7 @@ Add one visually subordinate **Later** card beside, rather than among, the prima
 
 - Task list and status grouping
 - Add and edit task dialogs
-- Nested subtasks and correct `parent_id` relationships
+- Two-level parent/subtask nesting and correct `parent_id` relationships
 - Task Diary entries, timestamps, user attribution, and automatic status-change entries
 - Focus locking and the Focus Mode task list
 - Configurable 25/50/90-minute focus timer behavior

@@ -25,7 +25,7 @@ The migration is divided into two operations:
 | External POS access | Persist migration-critical task facts on Base44 entities and keep them available through supported machine interfaces rather than only in frontend state. | Resolved |
 | Backlog and activation behavior | Store Backlog and Deferred as distinct statuses; retain non-actionable tasks in an accessible filtered view; define date-driven and manual activation rules. | Resolved |
 | Existing status mapping | Apply the deterministic POS-to-SentinelTask status mapping documented below. | Resolved |
-| Status additions | Add and fully integrate Waiting, Deferred, Cancelled, and Backlog while preserving To Do, In Progress, Done, and Blocked. | Resolved |
+| Status additions | Add and fully integrate Waiting, Deferred, Cancelled, and Backlog while preserving Not Started, In Progress, Done, and Blocked. | Resolved |
 | Assignment | Permit zero or one assignee, default new tasks to the current user, allow assignment to any authorized user, and diary-log assignment changes. | Resolved |
 | Category and tag mapping | Map POS categories to Work or Personal and retain the narrower classification as a normalized tag. | Resolved |
 | Priority mapping | Replace Urgent as a priority with Critical; map numeric `0` – `3` to Critical – Low and retain urgency as the `urgent` tag. | Resolved |
@@ -50,12 +50,12 @@ The migration is divided into two operations:
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
-- When the Effective Date arrives, activation reconciliation moves an eligible Backlog or Deferred task to To Do, persists the change, and creates exactly one activation diary entry for that effective-date cycle.
+- When the Effective Date arrives, activation reconciliation moves an eligible Backlog or Deferred task to Not Started, persists the change, and creates exactly one activation diary entry for that effective-date cycle.
 - Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
 - Reconciliation is idempotent for each effective-date cycle: repeated calls after activation do not repeat the transition or create duplicate diary entries.
 - Assigning a new future Effective Date begins a new effective-date cycle.
 - The effective date can be changed before activation.
-- A user may promote a task to To Do before its effective date. Early promotion clears `effective_date` and records the transition in the Task Diary.
+- A user may promote a task to Not Started before its effective date. Early promotion clears `effective_date` and records the transition in the Task Diary.
 - Moving a never-started task to a future effective date places it in Backlog.
 - Moving a task on which meaningful work has begun to a future effective date places it in Deferred.
 - Reactivation retains the complete Task Diary.
@@ -69,8 +69,8 @@ The migration is divided into two operations:
 - **Deferred** means meaningful work began, but the task was subsequently deprioritized, paused, or rescheduled.
 - Both statuses are excluded from the default actionable task view, actionable counts, and Focus Mode.
 - Both remain viewable and editable through a filtered non-actionable-task view.
-- Manual activation moves either status to To Do, clears `effective_date`, and creates a Task Diary entry.
-- Date-driven activation moves an eligible task to To Do and creates a system-generated Task Diary entry.
+- Manual activation moves either status to Not Started, clears `effective_date`, and creates a Task Diary entry.
+- Date-driven activation moves an eligible task to Not Started and creates a system-generated Task Diary entry.
 - A future Effective Date may be changed without losing diary history.
 - Automatic inference based on diary content and stronger transition enforcement are post-migration enhancements.
 
@@ -78,7 +78,7 @@ The migration is divided into two operations:
 
 | POS status | SentinelTask status | Meaning |
 | --- | --- | --- |
-| `not_started` with current or past Effective Date | To Do | Actionable and ready to begin; meaningful work has not started. |
+| `not_started` with current or past Effective Date | Not Started | Actionable and ready to begin; meaningful work has not started. |
 | `not_started` with future Effective Date | Backlog | Not actionable until the Effective Date. |
 | `backlog` | Backlog | Intentionally inactive; meaningful work has never begun. |
 | `in_progress` | In Progress | Meaningful work has begun and the task is actively advancing. |

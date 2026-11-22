@@ -60,7 +60,7 @@ For existing SentinelTask records whose priority is Urgent, change the priority 
 
 Extend the status enum to:
 
-- To Do
+- Not Started
 - In Progress
 - Waiting
 - Blocked
@@ -73,7 +73,7 @@ Update every part of the application that assumes the existing status or priorit
 
 ### Status semantics
 
-- **To Do:** Actionable and ready to begin; meaningful work has not started.
+- **Not Started:** Actionable and ready to begin; meaningful work has not started.
 - **In Progress:** Meaningful work has begun and the task is actively advancing.
 - **Waiting:** Progress is paused for expected input, action, or an event from another person or system.
 - **Blocked:** Progress is prevented by an unexpected or unplanned obstacle that must be resolved or worked around.
@@ -97,11 +97,11 @@ Apply these rules using the user's configured timezone, or the browser timezone 
 - A future-effective task on which meaningful work began belongs in Deferred.
 - Backlog and Deferred tasks must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Provide a reusable activation-reconciliation operation that the SentinelTask interface and external POS consumers can invoke before retrieving actionable work. It must not depend solely on opening a particular SentinelTask page. Do not require a scheduled background workflow.
-- When reconciliation finds an eligible Backlog or Deferred task on or after its Effective Date, move it to To Do and persist the change.
+- When reconciliation finds an eligible Backlog or Deferred task on or after its Effective Date, move it to Not Started and persist the change.
 - Reconciliation is idempotent for each effective-date cycle. Assigning a new future Effective Date begins a new cycle.
 - Each date-driven activation must create exactly one system-generated Task Diary entry for that effective-date cycle.
 - The user may change Effective Date without losing diary history.
-- The user may manually activate a Backlog or Deferred task early. Manual activation moves it to To Do, clears `effective_date`, and creates an attributed Task Diary entry.
+- The user may manually activate a Backlog or Deferred task early. Manual activation moves it to Not Started, clears `effective_date`, and creates an attributed Task Diary entry.
 - Backlog may remain undated indefinitely.
 
 ### Later card and non-actionable view
@@ -176,7 +176,7 @@ Before considering the change complete, verify that:
 6. Focus locking, Focus Mode, and the timer still work for actionable tasks.
 7. Backlog, Deferred, and future-effective tasks are absent from actionable views, counts, and Focus Mode.
 8. The Later card shows separate accurate Backlog and Deferred counts, remains visually subordinate, and opens the correct filtered view.
-9. An eligible Backlog or Deferred task becomes To Do when activation reconciliation runs on or after its Effective Date in the user's applicable timezone, whether invoked through SentinelTask or the supported external POS access path.
+9. An eligible Backlog or Deferred task becomes Not Started when activation reconciliation runs on or after its Effective Date in the user's applicable timezone, whether invoked through SentinelTask or the supported external POS access path.
 10. Repeating activation reconciliation for a given effective-date cycle after activation leaves the status unchanged and does not create another activation diary entry.
 11. Manual early activation and editing Effective Date work correctly without losing diary history.
 12. Every added status and priority is supported consistently throughout the schema, interface, filtering, counts, and diary.

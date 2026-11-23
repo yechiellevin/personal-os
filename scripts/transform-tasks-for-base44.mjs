@@ -60,6 +60,13 @@ const records = source.map(task => {
   const [category, categoryTag] = CATEGORY_MAP[task.category];
   const owner = OWNER_MAP[task.owner];
   const tags = [...new Set([categoryTag, ...(task.tags || []).map(kebab)].filter(Boolean))];
+  // Historical POS Effective Dates predate the activation-gate semantics now
+  // used by SentinelTask. An explicitly Deferred task with a reached date is
+  // deferred indefinitely unless a new future activation date is assigned.
+  const effectiveDate =
+    task.status === "deferred" && task.effective_date && task.effective_date <= asOfArg
+      ? null
+      : task.effective_date || null;
 
   const record = {
     title: task.name,
@@ -69,7 +76,7 @@ const records = source.map(task => {
     priority: PRIORITY_MAP[task.priority ?? 2],
     category,
     due_date: task.due_date || null,
-    effective_date: task.effective_date || null,
+    effective_date: effectiveDate,
     assignee_id: owner.id,
     legacy_pos_id: task.id,
     focus_locked: false,

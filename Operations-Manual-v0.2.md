@@ -153,7 +153,18 @@ Automations invoke operating procedures; they do not define them.
 
 Normative POS behavior belongs in the canonical repository documents, not in scheduled-task prompts. Automation prompts should contain only the bootstrap context necessary to locate the authoritative repository and operating model, identify the procedure to invoke, and deliver its result to the intended destination.
 
-Before executing a POS procedure, an automation should read the current canonical operating documents and operational data from the repository and follow them as written. If the operating model says that the procedure should not run on the current day, the automation should terminate without producing the suppressed output.
+Before executing a POS procedure, an automation should read the current canonical operating documents and follow them as written. If the operating model says that the procedure should not run on the current day, the automation should terminate without producing the suppressed output.
+
+### Review and standup data sources
+
+Daily standups and weekly Chief of Staff reviews use separate authoritative sources for rules and live task state:
+
+- Read current task data from SentinelTask through the authorized Base44 connection. This includes statuses, dates, priorities, hierarchy, assignments, tags, and diary information.
+- Read operating rules, architecture decisions, and durable planning documents from the canonical GitHub repository.
+- Treat `tasks.json` only as a frozen archival migration source. Never use it as current task data or allow it to override SentinelTask.
+- If SentinelTask cannot be read, report the access failure and stop the task-dependent review. Do not silently fall back to `tasks.json`.
+
+Maintain only one canonical daily-standup automation. Any superseded or duplicate daily-standup automation must remain disabled until it is removed. Before the canonical automation is enabled, its bootstrap prompt must identify SentinelTask as the task authority, the GitHub repository as the operating-document authority, and the branch-and-pull-request requirement for repository writes.
 
 Do not duplicate business rules in automation prompts merely for convenience. When an observed requirement is important enough to govern execution, add it to the canonical operating model instead.
 

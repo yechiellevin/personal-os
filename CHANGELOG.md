@@ -26,13 +26,19 @@
 
 - Activation separated from Priority
 - Daily operating cadence formalized
-- Repository documentation updated to reflect `tasks.json` as the operational database
+- SentinelTask designated as the operational task database; `tasks.json` frozen as an archival legacy snapshot
 - Daily standup output defined as an execution artifact rather than a replacement for the underlying situation review
 - Normal repository changes defined as branch-and-pull-request work
 - Scheduling model now explicitly separates Activation, Calendar Availability, Priority, and Scheduling
 - Daily Situation Report definition expanded to include blockers/constraints and an explicit end-of-day success condition
 - PDF generation for daily plans changed from optional-by-default to explicit-request-only
 - Daily standup generation explicitly separated from task-database mutation; inconsistencies are surfaced rather than silently changed
+
+### Migration and cutover
+
+- Imported the frozen legacy POS dataset into SentinelTask and reconciled record counts, parent relationships, legacy IDs, statuses, dates, diary entries, and sample separation.
+- Removed 17 validation/sample records to Base44's recoverable entity trash after successful post-import validation.
+- Deferred the external Effective Date reconciliation smoke test until SentinelTask is published and its OAuth MCP server is live.
 
 ### Deferred
 

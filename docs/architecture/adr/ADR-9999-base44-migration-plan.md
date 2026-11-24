@@ -109,3 +109,11 @@ So yes: the updated list is the right foundation. The next step is to turn it in
 > Extend the existing application to support the POS concepts it genuinely lacks, while preserving its now-confirmed task, hierarchy, diary, focus, and calendar behavior.
 
 I would resolve the five mapping questions above before drafting the exact sendable version.
+
+## Cutover declaration — 2026-11-24
+
+SentinelTask is now the operational source of truth for POS task data. The legacy `tasks.json` dataset is frozen and retained only as an archival migration source; it must not receive further operational task updates.
+
+The cutover baseline contains 65 retained SentinelTask records: 63 imported POS tasks and two legitimate pre-existing tasks. The 17 validation/sample records were moved to Base44's recoverable entity trash after post-import validation. At cutover, the retained dataset had no sample records, duplicate legacy POS IDs, broken parent relationships, or Backlog/Deferred tasks due for reconciliation.
+
+SentinelTask remains unpublished for the time being. Therefore the external Effective Date reconciliation test is a post-publication smoke test rather than a cutover prerequisite. After publication, invoke the external `reconcile_activations` tool against the imported dataset and confirm idempotency and the absence of duplicate diary entries.

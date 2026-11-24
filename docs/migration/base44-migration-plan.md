@@ -1,6 +1,6 @@
 # SentinelTask Migration Plan
 
-Status: Ready for final review  
+Status: Cutover completed on 2026-11-24. Hosted automation synchronization and first-run verification are tracked in [Issue #58](https://github.com/yechiellevin/personal-os/issues/58).  
 Decision record: [`ADR-9999-base44-migration-plan.md`](../architecture/adr/ADR-9999-base44-migration-plan.md)  
 Implementation prompt: [`base44-builder-prompt.md`](base44-builder-prompt.md)
 
@@ -204,7 +204,7 @@ After import, verify:
 - top-level and child counts, parent relationships, and absence of orphans or cycles;
 - mapped categories, tags, numeric priorities, dates, assignees, summaries, and diary-entry counts;
 - connector/API visibility of the migration-critical stored fields;
-- correct, idempotent activation reconciliation through both the SentinelTask UI path and the external POS access path;
+- correct, idempotent activation reconciliation through the SentinelTask UI path, with external POS invocation deferred to the post-publication smoke test below;
 - representative spot checks from every source status and category;
 - mixed-status hierarchy display;
 - Later-card counts and filtering;
@@ -225,6 +225,16 @@ Any unexplained record loss, duplicate, broken relationship, diary loss, or sche
 8. Run all post-import validation and obtain explicit sign-off.
 9. If validation fails, stop the cutover, remove records identifiable by the import's `legacy_pos_id` set or restore the pre-import export, and retain `tasks.json` as the source of truth.
 10. If validation passes, declare SentinelTask the task source of truth and archive the frozen JSON snapshot as the migration record.
+
+## Cutover record
+
+SentinelTask became the authoritative source for operational task data on 2026-11-24. GitHub remains authoritative for POS operating documentation. The frozen `tasks.json` dataset is an archival migration record and must never be used as live task data, including when SentinelTask is unavailable.
+
+The cutover retained 65 records, including 63 imported POS tasks and two legitimate pre-existing tasks. After post-import validation, 17 validation and sample records were moved to Base44's recoverable entity trash. The retained dataset had no sample records, duplicate legacy POS IDs, broken parent relationships, or Backlog or Deferred tasks due for reconciliation at cutover.
+
+### Post-publication smoke test
+
+SentinelTask remains unpublished. Once it is published and its OAuth MCP server is live, invoke the external `reconcile_activations` tool against eligible imported data. Repeat the invocation to confirm idempotency and verify that it creates no duplicate diary entry. Track the result in [Issue #58](https://github.com/yechiellevin/personal-os/issues/58).
 
 ## Work deliberately deferred until after migration
 

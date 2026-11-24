@@ -15,7 +15,7 @@ Success is measured by sustained progress on high-value objectives---not by maxi
 - Defines goals and priorities.
 - Makes final decisions.
 - Captures commitments into the system.
-- Keeps the task database current.
+- Keeps SentinelTask, the operational task database, current.
 
 ### Chief of Staff
 
@@ -86,7 +86,7 @@ Review the Curiosity Queue during weekly planning and intentionally promote item
 
 ## Daily Cadence
 
-On schedulable days, the daily standup begins with an underlying situation review of the current task database. Apply Effective Date first, then Calendar Availability, then evaluate active tasks using Priority, State, deadlines, dependencies, current context, and the scheduling principles in this manual.
+On schedulable days, the daily standup begins with an underlying situation review of the current SentinelTask task data. Apply Effective Date first, then Calendar Availability, then evaluate active tasks using Priority, State, deadlines, dependencies, current context, and the scheduling principles in this manual.
 
 When referencing a task in the situation review, chat summary, or desk plan, always include its task ID and name or a clear paraphrase of the name.
 
@@ -126,7 +126,15 @@ The canonical desk plan is created through the normal repository-governance work
 - Successful creation of the pull request is the completion condition for the daily standup. Do not report the desk plan as ready unless the pull request has actually been created successfully.
 - If creation of the Markdown file, working branch, or pull request fails, report the failure clearly instead of claiming success.
 
-Generating the daily standup does not itself authorize changes to `tasks.json`. If the review reveals task-state inconsistencies, overdue items requiring a decision, missing information, or other task-database issues, surface them in the situation review rather than silently changing the task list. Task-database changes follow their own normal operating and repository-governance process.
+Generating the daily standup does not itself authorize changes to SentinelTask. If the review reveals task-state inconsistencies, overdue items requiring a decision, missing information, or other task-database issues, surface them in the situation review rather than silently changing the task list. SentinelTask changes follow their own normal operating and authorization process.
+
+## Operational Data Authority
+
+SentinelTask is the operational source of truth for POS tasks as of 2026-11-24. New tasks and changes to task state, dates, assignment, hierarchy, descriptions, tags, and diary information belong in SentinelTask.
+
+The legacy `tasks.json` dataset is frozen. It is retained only as an archival migration source and must not receive operational updates or be used to override newer SentinelTask data.
+
+Until SentinelTask is published, external workflows may read it through the authorized Base44 management connection. Publication is not required for ordinary personal use in the Base44 editor. After publication, the external Effective Date reconciliation invocation must be smoke-tested against the imported dataset.
 
 ## Repository Governance
 
@@ -143,9 +151,20 @@ The repository is part of the POS system of record.
 
 Automations invoke operating procedures; they do not define them.
 
-Normative POS behavior belongs in the canonical repository documents, not in scheduled-task prompts. Automation prompts should contain only the bootstrap context necessary to locate the authoritative repository and operating model, identify the procedure to invoke, and deliver its result to the intended destination.
+Normative POS behavior belongs in the canonical repository documents, not in scheduled-task prompts. Automation prompts should contain only the bootstrap context necessary to locate the authoritative sources and operating model, identify the procedure to invoke, and deliver its result to the intended destination. Repository copies of the hosted bootstrap prompts are maintained in `docs/automations/canonical-prompts.md`; changes must be synchronized to the hosted automation configuration after the repository change is merged.
 
-Before executing a POS procedure, an automation should read the current canonical operating documents and operational data from the repository and follow them as written. If the operating model says that the procedure should not run on the current day, the automation should terminate without producing the suppressed output.
+Before executing a POS procedure, an automation should read the current canonical operating documents and follow them as written. If the operating model says that the procedure should not run on the current day, the automation should terminate without producing the suppressed output.
+
+### Review and standup data sources
+
+Daily standups and weekly Chief of Staff reviews use separate authoritative sources for rules and live task state:
+
+- Read current task data from SentinelTask through the authorized Base44 connection. This includes statuses, dates, priorities, hierarchy, assignments, tags, and diary information.
+- Read operating rules, architecture decisions, and durable planning documents from the canonical GitHub repository.
+- Treat `tasks.json` only as a frozen archival migration source. Never use it as current task data or allow it to override SentinelTask.
+- If SentinelTask cannot be read, report the access failure and stop the task-dependent review. Do not silently fall back to `tasks.json`.
+
+Maintain only one canonical daily-standup automation. Any superseded or duplicate daily-standup automation must remain disabled until it is removed. Before the canonical automation is enabled, its bootstrap prompt must identify SentinelTask as the task authority, the GitHub repository as the operating-document authority, and the branch-and-pull-request requirement for repository writes.
 
 Do not duplicate business rules in automation prompts merely for convenience. When an observed requirement is important enough to govern execution, add it to the canonical operating model instead.
 

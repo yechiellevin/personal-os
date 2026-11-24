@@ -151,7 +151,7 @@ The repository is part of the POS system of record.
 
 Automations invoke operating procedures; they do not define them.
 
-Normative POS behavior belongs in the canonical repository documents, not in scheduled-task prompts. Automation prompts should contain only the bootstrap context necessary to locate the authoritative repository and operating model, identify the procedure to invoke, and deliver its result to the intended destination.
+Normative POS behavior belongs in the canonical repository documents, not in scheduled-task prompts. Automation prompts should contain only the bootstrap context necessary to locate the authoritative sources and operating model, identify the procedure to invoke, and deliver its result to the intended destination. Repository copies of the hosted bootstrap prompts are maintained in `docs/automations/canonical-prompts.md`; changes must be synchronized to the hosted automation configuration after the repository change is merged.
 
 Before executing a POS procedure, an automation should read the current canonical operating documents and follow them as written. If the operating model says that the procedure should not run on the current day, the automation should terminate without producing the suppressed output.
 

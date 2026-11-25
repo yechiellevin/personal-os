@@ -50,12 +50,14 @@ The migration is divided into two operations:
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
-- When the Effective Date arrives, activation reconciliation moves an eligible Backlog or Deferred task to Not Started, persists the change, and creates exactly one activation diary entry for that effective-date cycle.
+- Reconciliation clears any stored `effective_date` on or before today in the configured timezone, regardless of task status. Leave future dates intact.
+- If the task is an eligible Backlog or Deferred task, move it to Not Started as part of clearing the date. For any other task, keep its status. Record the clearing and any status transition together in exactly one system-generated Task Diary entry for that effective-date cycle.
 - Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
 - Reconciliation is idempotent for each effective-date cycle: repeated calls after activation do not repeat the transition or create duplicate diary entries.
 - Assigning a new future Effective Date begins a new effective-date cycle.
 - The effective date can be changed before activation.
-- A user may promote a task to Not Started before its effective date. Early promotion clears `effective_date` and records the transition in the Task Diary.
+- A user may promote a task to Not Started before its effective date. Early promotion clears `effective_date` and records both changes together in one user-attributed Task Diary entry.
+- Whenever a Task Diary entry records that an Effective Date was cleared, include the previous Effective Date if it differs from the diary entry's calendar date in the configured timezone.
 - Moving a never-started task to a future effective date places it in Backlog.
 - Moving a task on which meaningful work has begun to a future effective date places it in Deferred.
 - Reactivation retains the complete Task Diary.
@@ -69,8 +71,8 @@ The migration is divided into two operations:
 - **Deferred** means meaningful work began, but the task was subsequently deprioritized, paused, or rescheduled.
 - Both statuses are excluded from the default actionable task view, actionable counts, and Focus Mode.
 - Both remain viewable and editable through a filtered non-actionable-task view.
-- Manual activation moves either status to Not Started, clears `effective_date`, and creates a Task Diary entry.
-- Date-driven activation moves an eligible task to Not Started and creates a system-generated Task Diary entry.
+- Manual activation moves either status to Not Started and follows the Effective Date clearing and diary rules above.
+- Date-driven activation follows the same clearing rule and uses system attribution.
 - A future Effective Date may be changed without losing diary history.
 - Automatic inference based on diary content and stronger transition enforcement are post-migration enhancements.
 
@@ -234,7 +236,7 @@ The cutover retained 65 records, including 63 imported POS tasks and two legitim
 
 ### Post-publication smoke test
 
-SentinelTask remains unpublished. Once it is published and its OAuth MCP server is live, invoke the external `reconcile_activations` tool against eligible imported data. Repeat the invocation to confirm idempotency and verify that it creates no duplicate diary entry. Track the result in [Issue #58](https://github.com/yechiellevin/personal-os/issues/58).
+SentinelTask remains unpublished. Once it is published and its OAuth MCP server is live, invoke the external `reconcile_activations` tool against eligible imported data. Verify that reconciliation clears reached Effective Dates from storage across task statuses, activates eligible Backlog or Deferred tasks, and preserves other statuses and future dates. Verify that one system-generated diary entry records each clearing and any status transition, including the previous Effective Date when it differs from the entry date. Repeat the invocation to confirm idempotency and verify that it creates no duplicate diary entry. Track the result in [Issue #58](https://github.com/yechiellevin/personal-os/issues/58).
 
 ## Work deliberately deferred until after migration
 

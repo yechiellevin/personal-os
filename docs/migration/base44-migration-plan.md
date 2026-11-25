@@ -49,9 +49,9 @@ The migration is divided into two operations:
 - `effective_date` is nullable.
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
-- Display Effective Date on task cards and task details only when it is strictly later than today in the configured timezone. Hide the field when it is unset, is today, or is in the past. Historical dates remain visible in the Task Diary according to the diary rules below.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
-- When the Effective Date arrives, activation reconciliation moves an eligible Backlog or Deferred task to Not Started and clears `effective_date`. Persist both changes and record them together in exactly one system-generated Task Diary entry for that effective-date cycle.
+- Reconciliation clears any stored `effective_date` on or before today in the configured timezone, regardless of task status. Leave future dates intact.
+- If the task is an eligible Backlog or Deferred task, move it to Not Started as part of clearing the date. For any other task, keep its status. Record the clearing and any status transition together in exactly one system-generated Task Diary entry for that effective-date cycle.
 - Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.
 - Reconciliation is idempotent for each effective-date cycle: repeated calls after activation do not repeat the transition or create duplicate diary entries.
 - Assigning a new future Effective Date begins a new effective-date cycle.
@@ -236,7 +236,7 @@ The cutover retained 65 records, including 63 imported POS tasks and two legitim
 
 ### Post-publication smoke test
 
-SentinelTask remains unpublished. Once it is published and its OAuth MCP server is live, invoke the external `reconcile_activations` tool against eligible imported data. Verify that activation clears the stored Effective Date and that one system-generated diary entry records both changes, including the previous Effective Date when it differs from the entry date. Repeat the invocation to confirm idempotency and verify that it creates no duplicate diary entry. Track the result in [Issue #58](https://github.com/yechiellevin/personal-os/issues/58).
+SentinelTask remains unpublished. Once it is published and its OAuth MCP server is live, invoke the external `reconcile_activations` tool against eligible imported data. Verify that reconciliation clears reached Effective Dates from storage across task statuses, activates eligible Backlog or Deferred tasks, and preserves other statuses and future dates. Verify that one system-generated diary entry records each clearing and any status transition, including the previous Effective Date when it differs from the entry date. Repeat the invocation to confirm idempotency and verify that it creates no duplicate diary entry. Track the result in [Issue #58](https://github.com/yechiellevin/personal-os/issues/58).
 
 ## Work deliberately deferred until after migration
 

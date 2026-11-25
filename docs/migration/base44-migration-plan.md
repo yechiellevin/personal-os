@@ -49,6 +49,7 @@ The migration is divided into two operations:
 - `effective_date` is nullable.
 - An undated task may remain in Backlog indefinitely.
 - A future-effective task is non-actionable and must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
+- Display Effective Date on task cards and task details only when it is strictly later than today in the configured timezone. Hide the field when it is unset, is today, or is in the past. Historical dates remain visible in the Task Diary according to the diary rules below.
 - Future-effective and undated Backlog or Deferred tasks remain accessible through the Later card and its filtered view.
 - When the Effective Date arrives, activation reconciliation moves an eligible Backlog or Deferred task to Not Started and clears `effective_date`. Persist both changes and record them together in exactly one system-generated Task Diary entry for that effective-date cycle.
 - Reconciliation is continuing application logic, not merely an import step. It must be usable by both the SentinelTask interface and external POS consumers before they retrieve actionable work; it must not depend solely on opening a particular page.

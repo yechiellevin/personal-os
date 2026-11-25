@@ -97,11 +97,12 @@ Apply these rules using the user's configured timezone, or the browser timezone 
 - A future-effective task on which meaningful work began belongs in Deferred.
 - Backlog and Deferred tasks must not appear in the default task view, actionable summary counts, Urgent count, or Focus Mode.
 - Provide a reusable activation-reconciliation operation that the SentinelTask interface and external POS consumers can invoke before retrieving actionable work. It must not depend solely on opening a particular SentinelTask page. Do not require a scheduled background workflow.
-- When reconciliation finds an eligible Backlog or Deferred task on or after its Effective Date, move it to Not Started and persist the change.
+- When reconciliation finds an eligible Backlog or Deferred task on or after its Effective Date, move it to Not Started, clear `effective_date`, and persist both changes.
 - Reconciliation is idempotent for each effective-date cycle. Assigning a new future Effective Date begins a new cycle.
-- Each date-driven activation must create exactly one system-generated Task Diary entry for that effective-date cycle.
+- Each date-driven activation must create exactly one system-generated Task Diary entry for that effective-date cycle, recording both the status transition and the Effective Date clearing.
 - The user may change Effective Date without losing diary history.
-- The user may manually activate a Backlog or Deferred task early. Manual activation moves it to Not Started, clears `effective_date`, and creates an attributed Task Diary entry.
+- The user may manually activate a Backlog or Deferred task early. Manual activation moves it to Not Started, clears `effective_date`, and creates one user-attributed Task Diary entry recording both changes.
+- Whenever a Task Diary entry records that an Effective Date was cleared, include the previous Effective Date if it differs from the diary entry's calendar date in the configured timezone.
 - Backlog may remain undated indefinitely.
 
 ### Later card and non-actionable view
@@ -178,7 +179,7 @@ Before considering the change complete, verify that:
 8. The Later card shows separate accurate Backlog and Deferred counts, remains visually subordinate, and opens the correct filtered view.
 9. An eligible Backlog or Deferred task becomes Not Started when activation reconciliation runs on or after its Effective Date in the user's applicable timezone, whether invoked through SentinelTask or the supported external POS access path.
 10. Repeating activation reconciliation for a given effective-date cycle after activation leaves the status unchanged and does not create another activation diary entry.
-11. Manual early activation and editing Effective Date work correctly without losing diary history.
+11. Manual early activation clears Effective Date and records both changes in one user-attributed entry. Editing Effective Date preserves diary history. For both manual and automatic activation, verify that the diary includes the cleared date when it differs from the entry date.
 12. Every added status and priority is supported consistently throughout the schema, interface, filtering, counts, and diary.
 13. New tasks default assignment to the current user; authorized-user reassignment and unassignment work.
 14. Summary can be created, displayed, edited, and left empty without being overwritten by diary activity.
